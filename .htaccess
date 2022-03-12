@@ -6,3 +6,4 @@ RewriteRule ^register$ app/controllers/register.php [L]
 
 RewriteRule ^user/profile$ app/controllers/user/profile.php [L]
 RewriteRule ^user/change-password$ app/controllers/user/change-password.php
+RewriteRule ^user/transfer$ app/controllers/user/transfer.php

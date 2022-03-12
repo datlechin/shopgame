@@ -15,6 +15,8 @@ if (!isLoggedIn()) {
     exit;
 }
 
+$title = 'Đổi mật khẩu';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $old_password = cleanInput($_POST['old_password']);
     $password = cleanInput($_POST['password']);

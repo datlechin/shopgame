@@ -4,5 +4,6 @@
         <a href="/user/profile" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/profile')) ? 'active' : ''; ?>" aria-current="true">Thông tin tài khoản</a>
         <a href="/user/change-password" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/change-password')) ? 'active' : ''; ?>" aria-current="true">Đổi mật khẩu</a>
         <a href="/user/trans" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/trans')) ? 'active' : ''; ?>">Lịch sử giao dịch</a>
+        <a href="/user/transfer" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/transfer')) ? 'active' : ''; ?>">Chuyển tiền</a>
     </div>
 </div>
