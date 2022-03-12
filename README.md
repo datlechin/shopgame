@@ -9,7 +9,11 @@ Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình ph�
 4. Cấu hình thông tin database trong tệp `app/config.php`
 
 ## Hướng dẫn đóng góp
-...
+
+1. Fork repo này và clone về máy của bạn.
+2. Chạy lệnh `composer install` để cài đặt các thư viện.
+3. Commit code của bạn và push lên Github.
+4. Nhấn Create pull request để đóng góp.
 
 ## Báo cáo lỗi & góp ý
 
