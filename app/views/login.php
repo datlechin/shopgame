@@ -22,7 +22,7 @@ require_once 'partials/header.php';
                                 <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
                             </div>
                             <div class="input-group form-outline mb-3">
-                                <input type="text" id="password" name="password" class="form-control">
+                                <input type="password" id="password" name="password" class="form-control">
                                 <label for="password" class="form-label">Mật khẩu</label>
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
                             </div>

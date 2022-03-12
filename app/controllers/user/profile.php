@@ -8,11 +8,11 @@
  * Vui lòng không xóa các dòng này
  */
 
-require_once '../bootstrap.php';
+require_once '../../bootstrap.php';
 
 if (!isLoggedIn()) {
-    redirect('/login');
+    header('Location: login.php');
+    exit;
 }
 
-session_destroy();
-redirect('/login');
+require_once '../../views/user/profile.php';

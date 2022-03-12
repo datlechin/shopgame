@@ -20,5 +20,9 @@ if (isLoggedIn()) {
     $user_id = $_SESSION['user_id'];
     $sql = "SELECT * FROM users WHERE id = $user_id";
     $result = $db->query($sql);
-    $user = $result->fetch_assoc();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    } else {
+        header('Location: /logout');
+    }
 }
