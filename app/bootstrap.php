@@ -8,7 +8,17 @@
  * Vui lòng không xóa các dòng này
  */
 
-require_once 'config.php';
-require_once 'core/Database.php';
+session_start();
+ob_start();
 
-$db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+require_once 'config.php';
+require_once 'helpers.php';
+
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+if (isLoggedIn()) {
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE id = $user_id";
+    $result = $db->query($sql);
+    $user = $result->fetch_assoc();
+}
