@@ -29,3 +29,12 @@ function isLoggedIn(): bool
 {
     return isset($_SESSION['user_id']);
 }
+
+function isCurrentUrl($url = ''): string
+{
+    if (str_contains($_SERVER['REQUEST_URI'], $url)) {
+        return true;
+    }
+
+    return false;
+}
