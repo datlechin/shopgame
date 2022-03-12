@@ -7,7 +7,7 @@ require_once '../../views/partials/header.php';
         <?php
         require_once '../../views/partials/user-sidebar.php';
         ?>
-        <div class="col-md-9">
+        <div class="col-md-9 mt-4 mt-md-0">
             <h2 class="text-uppercase fw-bold">Thông tin tài khoản</h2>
             <table class="table table-striped">
                 <tbody><tr>

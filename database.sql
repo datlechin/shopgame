@@ -14,4 +14,4 @@ CREATE TABLE `users`
     UNIQUE KEY `username_UNIQUE` (`username`),
     UNIQUE KEY `email_UNIQUE` (`email`),
     UNIQUE KEY `phone_UNIQUE` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
