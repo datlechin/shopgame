@@ -26,6 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Vui lòng nhập mật khẩu mới';
     } else if ($password_confirm === '') {
         $error = 'Vui lòng nhập lại mật khẩu mới';
+    } else if ($password !== $password_confirm) {
+        $error = 'Mật khẩu mới và mật khẩu xác nhận không khớp';
+    } else if (strlen($password) < 6 || strlen($password) > 32) {
+        $error = 'Mật khẩu phải có độ dài từ 6 đến 32 ký tự';
+    } else if (password_verify($old_password, $user['password']) === false) {
+        $error = 'Mật khẩu cũ không đúng';
+    } else {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $query = "UPDATE users SET password = '$password' WHERE id = {$user['id']}";
+        $db->query($query);
+        $success = 'Đổi mật khẩu thành công';
     }
 }
+
 require_once '../../views/user/change-password.php';
