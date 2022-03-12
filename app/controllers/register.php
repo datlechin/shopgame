@@ -25,13 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username === '') {
         $error = 'Tên đăng nhập không được để trống';
-    } elseif ($email === '') {
+    } else if (strlen($username) < 4 || strlen($username) > 30) {
+        $error = 'Tên đăng nhập phải từ 4 đến 30 ký tự';
+    } else if ($email === '') {
         $error = 'Email không được để trống';
-    } elseif ($phone === '') {
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = 'Email không hợp lệ';
+    } else if ($phone === '') {
         $error = 'Số điện thoại không được để trống';
-    } elseif ($password === '') {
+    } else if (!preg_match('/^0[0-9]{9}$/', $phone)) {
+        $error = 'Số điện thoại không hợp lệ';
+    } else if ($password === '') {
         $error = 'Mật khẩu không được để trống';
-    } elseif ($password_confirm === '') {
+    } else if ($password_confirm === '') {
         $error = 'Mật khẩu xác nhận không được để trống';
     } else if ($password !== $password_confirm) {
         $error = 'Mật khẩu xác nhận không trùng khớp';
@@ -42,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($usernameExist) {
             $error = 'Tên đăng nhập đã tồn tại';
-        } elseif ($emailExist) {
+        } else if ($emailExist) {
             $error = 'Email đã tồn tại';
-        } elseif ($phoneExist) {
+        } else if ($phoneExist) {
             $error = 'Số điện thoại đã tồn tại';
         } else {
             $password = password_hash($password, PASSWORD_DEFAULT);

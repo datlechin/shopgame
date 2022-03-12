@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = cleanInput($_POST['username']);
     $password = cleanInput($_POST['password']);
 
-    $result = $db->query("SELECT * FROM users WHERE username = '$username'");
-    $num_rows = $result->num_rows;
-
     if ($username === '') {
         $error = 'Vui lòng nhập tên đăng nhập';
     } else {
+        $result = $db->query("SELECT * FROM users WHERE username = '$username'");
+        $num_rows = $result->num_rows;
+
         if ($num_rows === 0) {
             $error = 'Tên đăng nhập không tồn tại';
         } else {
