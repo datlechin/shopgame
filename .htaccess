@@ -1,7 +1,8 @@
 RewriteEngine On
 
-RewriteRule ^login app/controllers/login.php [L]
-RewriteRule ^logout app/controllers/logout.php [L]
-RewriteRule ^register app/controllers/register.php [L]
+RewriteRule ^login$ app/controllers/login.php [L]
+RewriteRule ^logout$ app/controllers/logout.php [L]
+RewriteRule ^register$ app/controllers/register.php [L]
 
-RewriteRule ^user/profile app/controllers/user/profile.php [L]
+RewriteRule ^user/profile$ app/controllers/user/profile.php [L]
+RewriteRule ^user/change-password$ app/controllers/user/change-password.php
