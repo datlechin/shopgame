@@ -15,4 +15,6 @@ if (!isLoggedIn()) {
     exit;
 }
 
+$title = 'Thông tin tài khoản';
+
 require_once '../../views/user/profile.php';

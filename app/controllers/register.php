@@ -14,6 +14,8 @@ if (isLoggedIn()) {
     redirect('/');
 }
 
+$title = 'Đăng ký';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = cleanInput($_POST['username']);
     $email = cleanInput($_POST['email']);
