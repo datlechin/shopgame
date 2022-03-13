@@ -49,9 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $db->query("INSERT INTO transactions (user_id, trade_type, amount, balance, description, status) VALUES ('$recipient[id]', '$recipientTrade', '$amount', '$recipientBalance', 'Nhận tiền từ $user[username]', 1)");
                 $success = 'Chuyển tiền thành công';
 
-                $username = '';
-                $amount = '';
-                $description = '';
+                unset($_POST);
             }
         }
     }
