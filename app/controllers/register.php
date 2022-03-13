@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Tên đăng nhập phải từ 4 đến 30 ký tự';
     } else if ($email === '') {
         $error = 'Email không được để trống';
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    } else if (emailValidate($email) === false) {
         $error = 'Email không hợp lệ';
     } else if ($phone === '') {
         $error = 'Số điện thoại không được để trống';
-    } else if (!preg_match('/^0[0-9]{9}$/', $phone)) {
+    } else if (phoneValidate($phone) === false) {
         $error = 'Số điện thoại không hợp lệ';
     } else if ($password === '') {
         $error = 'Mật khẩu không được để trống';

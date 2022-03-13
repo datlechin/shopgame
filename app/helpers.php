@@ -68,3 +68,13 @@ function getTradeType($trade): int
         'transfer', 'sub_money', 'withdraw' => 0,
     };
 }
+
+function emailValidate($email): bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+function phoneValidate($phone): bool
+{
+    return preg_match('/^0[0-9]{9}$/', $phone);
+}
