@@ -10,10 +10,7 @@
 
 require_once '../../bootstrap.php';
 
-if (!isLoggedIn()) {
-    header('Location: login.php');
-    exit;
-}
+redirectIfNotLoggedIn();
 
 $title = 'Đổi mật khẩu';
 

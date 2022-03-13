@@ -25,11 +25,6 @@ function cleanInput($data): string
     return $data;
 }
 
-function isLoggedIn(): bool
-{
-    return isset($_SESSION['user_id']);
-}
-
 function isCurrentUrl($url = ''): string
 {
     if (str_contains($_SERVER['REQUEST_URI'], $url)) {
@@ -77,4 +72,13 @@ function emailValidate($email): bool
 function phoneValidate($phone): bool
 {
     return preg_match('/^0[0-9]{9}$/', $phone);
+}
+
+function redirectIfNotLoggedIn()
+{
+    global $userClass;
+
+    if (!$userClass->isLoggedIn()) {
+        redirect('login');
+    }
 }

@@ -60,4 +60,15 @@ class User
         $result = $this->db->query("SELECT * FROM users WHERE phone = '$phone'");
         return $result->num_rows > 0;
     }
+
+    public function isLoggedIn(): bool
+    {
+        if (isset($_SESSION['user_id'])) {
+            $user = $this->findById($_SESSION['user_id']);
+            if ($user) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

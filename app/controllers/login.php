@@ -10,7 +10,7 @@
 
 require_once '../bootstrap.php';
 
-if (isLoggedIn()) {
+if ($userClass->isLoggedIn()) {
     redirect('/');
 }
 

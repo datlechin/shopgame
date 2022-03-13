@@ -18,7 +18,7 @@ require_once 'core/User.php';
 $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $userClass = new User($db);
 
-if (isLoggedIn()) {
+if ($userClass->isLoggedIn()) {
     $user_id = cleanInput($_SESSION['user_id']);
     $user = $userClass->findById($user_id);
 }

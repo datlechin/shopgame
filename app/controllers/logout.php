@@ -10,9 +10,7 @@
 
 require_once '../bootstrap.php';
 
-if (!isLoggedIn()) {
-    redirect('/login');
-}
+redirectIfNotLoggedIn();
 
 session_destroy();
 redirect('/login');

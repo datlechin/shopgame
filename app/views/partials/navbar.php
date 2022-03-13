@@ -29,7 +29,7 @@
             </ul>
 
             <div class="d-flex align-items-center">
-                <?php if (isLoggedIn()) : ?>
+                <?php if ($userClass->isLoggedIn()) : ?>
                     <a class="btn btn-outline-black me-3" href="/user/profile">
                         <i class="fas fa-user-alt"></i>
                         <?php echo $user['username']; ?> - $ <?php echo number_format($user['balance']); ?>
