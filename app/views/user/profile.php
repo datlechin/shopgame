@@ -8,7 +8,7 @@ require_once '../../views/partials/header.php';
         require_once '../../views/partials/user-sidebar.php';
         ?>
         <div class="col-md-9 mt-4 mt-md-0">
-            <h2 class="text-uppercase fw-bold">Thông tin tài khoản</h2>
+            <h2 class="text-uppercase fw-bold"><?php echo (isset($title)) ? $title : 'Lịch sử giao dịch'; ?></h2>
             <table class="table table-striped">
                 <tbody><tr>
                     <th scope="row">ID của bạn:</th>

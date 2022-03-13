@@ -6,7 +6,7 @@ require_once '../../views/partials/header.php';
     <div class="row">
         <?php require_once '../../views/partials/user-sidebar.php'; ?>
         <div class="col-md-9 mt-4 mt-md-0">
-            <h2 class="text-uppercase fw-bold">Đổi mật khẩu</h2>
+            <h2 class="text-uppercase fw-bold"><?php echo (isset($title)) ? $title : 'Lịch sử giao dịch'; ?></h2>
             <?php require_once '../../views/partials/message.php'; ?>
             <form action="/user/change-password" method="post">
                 <div class="form-outline mb-3">
