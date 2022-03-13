@@ -4,6 +4,11 @@ Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình ph�
 
 ## Live demo: https://ngoquocdat.com
 
+## Yêu cầu hệ thống
+
+- Phiên bản PHP >= 8.x
+- MySQL
+
 ## Hướng dẫn sử dụng:
 1. Tải source code về máy (Code -> Download zip).
 2. Giải nén và up lên hosting hoặc localhost để chạy.
