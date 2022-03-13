@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `transfers`
     `recipient_id` int NOT NULL,
     `amount`       int NOT NULL,
     `description`  text,
+    `status`       int NOT NULL,
     `created_at`   datetime DEFAULT CURRENT_TIMESTAMP,
     `updated_at`   datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
