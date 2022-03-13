@@ -4,28 +4,6 @@ require_once 'partials/header.php';
 
     <div class="container">
         <div id="carousel" class="carousel slide" data-mdb-ride="carousel">
-            <div class="carousel-indicators">
-                <button
-                        type="button"
-                        data-mdb-target="#carouselIndicator"
-                        data-mdb-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                ></button>
-                <button
-                        type="button"
-                        data-mdb-target="#carouselIndicator"
-                        data-mdb-slide-to="1"
-                        aria-label="Slide 2"
-                ></button>
-                <button
-                        type="button"
-                        data-mdb-target="#carouselIndicator"
-                        data-mdb-slide-to="2"
-                        aria-label="Slide 3"
-                ></button>
-            </div>
             <div class="carousel-inner">
                 <div class="carousel-item" data-mdb-interval="5000">
                     <img src="https://nick.vn/storage/images/lITvp1Ph8r_1623147594.jpg" class="d-block w-100" alt="Camera"/>
