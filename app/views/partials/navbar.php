@@ -1,12 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
     <div class="container">
         <a class="navbar-brand me-2" href="/">
             <img
-                src="https://mdbcdn.b-cdn.net/wp-content/uploads/2018/06/logo-mdb-jquery-small.webp"
+                src="https://i.imgur.com/CjCS4eG.png"
                 height="35"
                 alt="MDB Logo"
                 loading="lazy"
-                style="margin-top: -5px;"
             />
         </a>
 
