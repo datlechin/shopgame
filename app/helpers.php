@@ -32,9 +32,39 @@ function isLoggedIn(): bool
 
 function isCurrentUrl($url = ''): string
 {
-    if ($_SERVER['REQUEST_URI'] === $url) {
+    if (str_contains($_SERVER['REQUEST_URI'], $url)) {
         return true;
     }
 
     return false;
+}
+
+function getUsernameById($id): string
+{
+    global $db;
+    $result = $db->query("SELECT username FROM users WHERE id = $id");
+    $user = $result->fetch_assoc();
+
+    return $user['username'];
+}
+
+function getTradeName($trade): string
+{
+    return match ($trade) {
+        'charge' => 'Nạp thẻ',
+        'transfer' => 'Chuyển tiền',
+        'receive' => 'Nhận tiền',
+        'withdraw' => 'Rút tiền',
+        'add_money' => 'Cộng tiền',
+        'sub_money' => 'Trừ tiền',
+        'refund' => 'Hoàn tiền',
+    };
+}
+
+function getTradeType($trade): int
+{
+    return match ($trade) {
+        'charge', 'add_money', 'receive', 'refund' => 1,
+        'transfer', 'sub_money', 'withdraw' => 0,
+    };
 }

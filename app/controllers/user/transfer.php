@@ -41,9 +41,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user['balance'] < $amount) {
                 $error = 'Số dư không đủ';
             } else {
+                $userBalance = (int) $user['balance'] - (int) $amount;
+                $recipientBalance = (int) $recipient['balance'] + (int) $amount;
+                $userTrade = 'transfer';
+                $recipientTrade = 'receive';
+
                 $db->query("UPDATE users SET balance = balance - $amount WHERE id = '$user[id]'");
                 $db->query("UPDATE users SET balance = balance + $amount WHERE id = '$recipient[id]'");
-                $db->query("INSERT INTO transfers (user_id, recipient_id, amount, description, status) VALUES ('$user[id]', '$recipient[id]', '$amount', '$description', 0)");
+                $db->query("INSERT INTO transfers (user_id, recipient_id, amount, description, status) VALUES ('$user[id]', '$recipient[id]', '$amount', '$description', 1)");
+                $db->query("INSERT INTO transactions (user_id, trade_type, amount, balance, description, status) VALUES ('$user[id]', '$userTrade', '$amount', '$userBalance', 'Chuyển tiền cho $recipient[username]', 1)");
+                $db->query("INSERT INTO transactions (user_id, trade_type, amount, balance, description, status) VALUES ('$recipient[id]', '$recipientTrade', '$amount', '$recipientBalance', 'Nhận tiền từ $user[username]', 1)");
                 $success = 'Chuyển tiền thành công';
             }
         }
