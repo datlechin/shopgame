@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $password = password_hash($password, PASSWORD_DEFAULT);
             $db->query("INSERT INTO users (username, email, phone, password) VALUES ('$username', '$email', '$phone', '$password')");
-            $user = $db->query("SELECT * FROM users WHERE username = '$username'")->fetch_assoc();
+            $user = $userClass->findByUsername($username);
             $_SESSION['user_id'] = $user['id'];
             redirect('/');
         }

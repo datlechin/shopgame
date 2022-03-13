@@ -13,16 +13,12 @@ ob_start();
 
 require_once 'config.php';
 require_once 'helpers.php';
+require_once 'core/User.php';
 
 $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$userClass = new User($db);
 
 if (isLoggedIn()) {
-    $user_id = $_SESSION['user_id'];
-    $sql = "SELECT * FROM users WHERE id = $user_id";
-    $result = $db->query($sql);
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-    } else {
-        header('Location: /logout');
-    }
+    $user_id = cleanInput($_SESSION['user_id']);
+    $user = $userClass->findById($user_id);
 }

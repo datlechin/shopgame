@@ -33,8 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if ($username === $user['id'] || $username === $user['username']) {
         $error = 'Không thể chuyển cho chính mình';
     } else {
-        $result = $db->query("SELECT * FROM users WHERE username = '$username' OR id = '$username'");
-        $recipient = $result->fetch_assoc();
+        $recipient = $userClass->findByIdOrUsername($username);
         if ($recipient === null) {
             $error = 'Tài khoản không tồn tại';
         } else {
