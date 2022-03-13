@@ -23,4 +23,15 @@ class User
     {
         return $this->db->query("SELECT * FROM users WHERE id = '$string' OR username = '$string'")->fetch_assoc();
     }
+
+    public function findAll(): array
+    {
+        $result = $this->db->query("SELECT * FROM users");
+        $users = [];
+        foreach ($result as $user) {
+            $users[] = $user;
+        }
+
+        return $users;
+    }
 }
