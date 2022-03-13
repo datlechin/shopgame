@@ -14,27 +14,27 @@ require_once '../../views/partials/header.php';
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="group_id">Giao dịch</span>
                             <select id="group_id" name="trade_type" class="form-control c-square c-theme">
-                                <option value="">-- Tất cả --</option>
-                                <option value="1">Nạp thẻ</option>
-                                <option value="2">Chuyển tiền</option>
-                                <option value="3">Nhận tiền</option>
-                                <option value="4">Rút tiền</option>
-                                <option value="5">Cộng tiền</option>
-                                <option value="6">Trừ tiền</option>
-                                <option value="7">Hoàn tiền</option>
+                                <option value="" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '') ? 'selected' : ''; ?>>-- Tất cả --</option>
+                                <option value="1" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '1') ? 'selected' : ''; ?>>Nạp thẻ</option>
+                                <option value="2" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '2') ? 'selected' : ''; ?>>Chuyển tiền</option>
+                                <option value="3" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '3') ? 'selected' : ''; ?>>Nhận tiền</option>
+                                <option value="4" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '4') ? 'selected' : ''; ?>>Rút tiền</option>
+                                <option value="5" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '5') ? 'selected' : ''; ?>>Cộng tiền</option>
+                                <option value="6" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '6') ? 'selected' : ''; ?>>Trừ tiền</option>
+                                <option value="7" <?php echo (isset($_GET['trade_type']) && $_GET['trade_type'] == '7') ? 'selected' : ''; ?>>Hoàn tiền</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="started_at"><i class="fa fa-calendar"></i></span>
-                            <input type="date" class="form-control" name="started_at" autocomplete="off" placeholder="Từ ngày" value="">
+                            <input type="date" class="form-control" name="started_at" autocomplete="off" placeholder="Từ ngày" value="<?php echo (isset($_GET['started_at'])) ? $_GET['started_at'] : ''; ?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="started_at"><i class="fa fa-calendar"></i></span>
-                            <input type="date" class="form-control" name="ended_at" autocomplete="off" placeholder="Đến ngày" value="">
+                            <input type="date" class="form-control" name="ended_at" autocomplete="off" placeholder="Đến ngày" value="<?php echo (isset($_GET['ended_at'])) ? $_GET['ended_at'] : ''; ?>">
                         </div>
                     </div>
                 </div>
