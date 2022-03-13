@@ -38,10 +38,10 @@
                     <a class="btn btn-outline-black me-3" href="/logout">Đăng xuất</a>
                 <?php else : ?>
                 <a href="/login" class="btn btn-outline-black me-3">
-                    Đăng nhập
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
                 </a>
                 <a href="/register" class="btn btn-outline-black me-3">
-                    Đăng ký
+                    <i class="fas fa-user-plus"></i> Đăng ký
                 </a>
                 <?php endif; ?>
             </div>
