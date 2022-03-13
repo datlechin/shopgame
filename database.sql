@@ -53,3 +53,22 @@ CREATE TABLE IF NOT EXISTS `transactions`
     CONSTRAINT `transactions_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `charges`
+(
+    `id`              int      NOT NULL AUTO_INCREMENT,
+    `user_id`         int      NOT NULL,
+    `telco`           tinytext NOT NULL,
+    `amount`          int      DEFAULT '0',
+    `amount_declared` int      NOT NULL,
+    `serial`          tinytext NOT NULL,
+    `pin`             tinytext NOT NULL,
+    `request_id`      int      NOT NULL,
+    `status`          int      DEFAULT NULL,
+    `created_at`      datetime DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`      datetime DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `charges_users_id_fk` (`user_id`),
+    CONSTRAINT `charges_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
