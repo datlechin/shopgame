@@ -34,4 +34,22 @@ class User
 
         return $users;
     }
+
+    public function usernameExists($username): bool
+    {
+        $result = $this->db->query("SELECT * FROM users WHERE username = '$username'");
+        return $result->num_rows > 0;
+    }
+
+    public function emailExists($email): bool
+    {
+        $result = $this->db->query("SELECT * FROM users WHERE email = '$email'");
+        return $result->num_rows > 0;
+    }
+
+    public function phoneExists($phone): bool
+    {
+        $result = $this->db->query("SELECT * FROM users WHERE phone = '$phone'");
+        return $result->num_rows > 0;
+    }
 }

@@ -42,15 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if ($password !== $password_confirm) {
         $error = 'Mật khẩu xác nhận không trùng khớp';
     } else {
-        $usernameExist = mysqli_num_rows($db->query("SELECT * FROM users WHERE username = '$username'"));
-        $emailExist = mysqli_num_rows($db->query("SELECT * FROM users WHERE email = '$email'"));
-        $phoneExist = mysqli_num_rows($db->query("SELECT * FROM users WHERE phone = '$phone'"));
-
-        if ($usernameExist) {
+        if ($userClass->usernameExists($username)) {
             $error = 'Tên đăng nhập đã tồn tại';
-        } else if ($emailExist) {
+        } else if ($userClass->emailExists($email)) {
             $error = 'Email đã tồn tại';
-        } else if ($phoneExist) {
+        } else if ($userClass->phoneExists($phone)) {
             $error = 'Số điện thoại đã tồn tại';
         } else {
             $password = password_hash($password, PASSWORD_DEFAULT);
