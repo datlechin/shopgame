@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            padding-top: 3.7rem;
+            padding-top: 4.3rem;
         }
     </style>
 </head>
