@@ -57,7 +57,7 @@ require_once 'partials/header.php';
                                 Đã bán: 125
                             </p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="#" class="btn btn-primary btn-block">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ require_once 'partials/header.php';
                                 Đã bán: 125
                             </p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="#" class="btn btn-primary btn-block">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ require_once 'partials/header.php';
                                 Đã bán: 125
                             </p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="#" class="btn btn-primary btn-block">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ require_once 'partials/header.php';
                                 Đã bán: 125
                             </p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="#" class="btn btn-primary btn-block">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>
