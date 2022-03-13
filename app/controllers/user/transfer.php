@@ -43,12 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $db->query("UPDATE users SET balance = balance - $amount WHERE id = '$user[id]'");
                 $db->query("UPDATE users SET balance = balance + $amount WHERE id = '$recipient[id]'");
-                $db->query("INSERT INTO transfers (user_id, recipient_id, amount, description) VALUES ('$user[id]', '$recipient[id]', '$amount', '$description')");
+                $db->query("INSERT INTO transfers (user_id, recipient_id, amount, description, status) VALUES ('$user[id]', '$recipient[id]', '$amount', '$description', 0)");
                 $success = 'Chuyển tiền thành công';
             }
         }
     }
-
 }
+
+$result = $db->query("SELECT * FROM transfers WHERE user_id = '$user[id]' OR `recipient_id` = '$user[id]' ORDER BY id DESC");
+$transfers = $result->fetch_all(MYSQLI_ASSOC);
 
 require_once '../../views/user/transfer.php';
