@@ -40,23 +40,23 @@ require_once '../../views/partials/header.php';
                     </thead>
                     <tbody>
                     <?php foreach ($transfers as $transfer): ?>
-                    <tr>
-                        <td><?php echo $transfer['created_at']; ?></td>
-                        <td>
-                            <?php echo getUsernameById($transfer['recipient_id']); ?>
-                        </td>
-                        <td><?php echo number_format($transfer['amount']); ?>đ</td>
-                        <td><?php echo $transfer['description']; ?></td>
-                        <td>
-                            <?php if ($transfer['status'] == 0): ?>
-                                <span class="badge bg-warning">Chờ xử lý</span>
-                            <?php elseif ($transfer['status'] == 1): ?>
-                                <span class="badge bg-success">Thành công</span>
-                            <?php else: ?>
-                                <span class="badge bg-danger">Thất bại</span>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $transfer['created_at']; ?></td>
+                            <td>
+                                <?php echo getUsernameById($transfer['recipient_id']); ?>
+                            </td>
+                            <td><?php echo number_format($transfer['amount']); ?>đ</td>
+                            <td><?php echo $transfer['description']; ?></td>
+                            <td>
+                                <?php if ($transfer['status'] == 0): ?>
+                                    <span class="badge bg-warning">Chờ xử lý</span>
+                                <?php elseif ($transfer['status'] == 1): ?>
+                                    <span class="badge bg-success">Thành công</span>
+                                <?php else: ?>
+                                    <span class="badge bg-danger">Thất bại</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>

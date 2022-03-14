@@ -66,6 +66,40 @@ require_once 'partials/header.php';
                         </div>
                     </div>
                 </form>
+                <div class="table-responsive mt-4">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Thời gian</th>
+                            <th>Nhà mạng</th>
+                            <th>Mã thẻ</th>
+                            <th>Serial</th>
+                            <th>Mệnh giá</th>
+                            <th>Kết quả</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($charges as $charge): ?>
+                            <tr>
+                                <td><?php echo $charge['created_at']; ?></td>
+                                <td><?php echo $charge['telco']; ?></td>
+                                <td><?php echo $charge['pin']; ?></td>
+                                <td><?php echo $charge['serial']; ?></td>
+                                <td><?php echo number_format($charge['amount_declared']); ?>đ</td>
+                                <td>
+                                    <?php if ($charge['status'] == 0): ?>
+                                        <span class="badge bg-warning">Chờ xử lý</span>
+                                    <?php elseif ($charge['status'] == 1): ?>
+                                        <span class="text-success"><?php echo number_format($charge['amount']); ?>đ</span>
+                                    <?php else: ?>
+                                        <span class="badge bg-danger">Thất bại</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

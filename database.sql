@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `charges`
     `serial`          tinytext NOT NULL,
     `pin`             tinytext NOT NULL,
     `request_id`      int      NOT NULL,
-    `status`          int      DEFAULT NULL,
+    `status`          int      DEFAULT '0',
     `created_at`      datetime DEFAULT CURRENT_TIMESTAMP,
     `updated_at`      datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),

@@ -29,13 +29,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if ($pin === '') {
         $error = 'Vui lòng nhập mã thẻ';
     } else {
-        $cardExists = $db->query("SELECT * FROM charges WHERE serial = '$serial' AND pin = '$pin'")->num_rows;
-        if ($cardExists == 0) {
-
-        } else {
+        $cardExists = $db->has('charges', [
+            'serial' => $serial,
+            'pin' => $pin
+        ]);
+        if ($cardExists) {
             $error = 'Thẻ bạn nạp đã tồn tại trong hệ thống';
+        } else {
+            $request_id = rand(000000000, 999999999);
+            $card = [
+                'user_id' => $user['id'],
+                'telco' => $telco,
+                'amount_declared' => $amount,
+                'serial' => $serial,
+                'pin' => $pin,
+                'request_id' => $request_id,
+                'status' => '0'
+            ];
+            $db->insert('charges', $card);
+            $success = 'Nạp thẻ thành công';
         }
     }
 }
+
+$charges = $db->select('charges', '*', [
+    'user_id' => $user['id']
+]);
 
 require_once '../views/charge.php';
