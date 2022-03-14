@@ -2,6 +2,8 @@
 
 Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình phát triển.
 
+Link nhóm zalo dev và hỗ trợ: https://zalo.me/g/ohmsbz685
+
 ## Live demo: https://ngoquocdat.com
 
 ## Yêu cầu hệ thống
