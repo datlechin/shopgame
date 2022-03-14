@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Vui lòng nhập nội dung';
     } else if ($amount < 10000) {
         $error = 'Số tiền chuyển phải lớn hơn 10.000';
-    } else if ($username === $user['id'] || $username === $user['username']) {
+    } else if ($username == $user['id'] || $username == $user['username']) {
         $error = 'Không thể chuyển cho chính mình';
     } else {
         $recipient = $userClass->findByIdOrUsername($username);
@@ -37,25 +37,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user['balance'] < $amount) {
                 $error = 'Số dư không đủ';
             } else {
-                $userBalance = (int) $user['balance'] - (int) $amount;
-                $recipientBalance = (int) $recipient['balance'] + (int) $amount;
+                $userBalance = (int)$user['balance'] - (int)$amount;
+                $recipientBalance = (int)$recipient['balance'] + (int)$amount;
                 $userTrade = 'transfer';
                 $recipientTrade = 'receive';
 
-                $db->query("UPDATE users SET balance = balance - $amount WHERE id = '$user[id]'");
-                $db->query("UPDATE users SET balance = balance + $amount WHERE id = '$recipient[id]'");
-                $db->query("INSERT INTO transfers (user_id, recipient_id, amount, description, status) VALUES ('$user[id]', '$recipient[id]', '$amount', '$description', 1)");
-                $db->query("INSERT INTO transactions (user_id, trade_type, amount, balance, description, status) VALUES ('$user[id]', '$userTrade', '$amount', '$userBalance', 'Chuyển tiền cho $recipient[username]', 1)");
-                $db->query("INSERT INTO transactions (user_id, trade_type, amount, balance, description, status) VALUES ('$recipient[id]', '$recipientTrade', '$amount', '$recipientBalance', 'Nhận tiền từ $user[username]', 1)");
+                $db->update('users', ['balance' => $userBalance], ['id' => $user['id']]);
+                $db->update('users', ['balance' => $recipientBalance], ['id' => $recipient['id']]);
+                $db->insert('transfers', [
+                    'user_id' => $user['id'],
+                    'recipient_id' => $recipient['id'],
+                    'amount' => $amount,
+                    'description' => $description,
+                    'status' => 1
+                ]);
+                $db->insert('transactions', [
+                    'user_id' => $user['id'],
+                    'trade_type' => $userTrade,
+                    'amount' => $amount,
+                    'balance' => $userBalance,
+                    'description' => 'Chuyển tiền cho ' . $recipient['username'],
+                    'status' => 1
+                ]);
+                $db->insert('transactions', ['user_id' => $recipient['id'],
+                    'trade_type' => $recipientTrade,
+                    'amount' => $amount,
+                    'balance' => $recipientBalance,
+                    'description' => 'Nhận tiền từ ' . $user['username'],
+                    'status' => 1
+                ]);
                 $success = 'Chuyển tiền thành công';
-
-                unset($_POST);
+                $username = '';
+                $amount = '';
+                $description = '';
             }
         }
     }
 }
 
-$result = $db->query("SELECT * FROM transfers WHERE user_id = '$user[id]' OR `recipient_id` = '$user[id]' ORDER BY id DESC");
-$transfers = $result->fetch_all(MYSQLI_ASSOC);
+$transfers = $db->select('transfers', '*', [
+    'OR' => ['user_id' => $user['id'], 'recipient_id' => $user['id']],
+    'ORDER' => ['id' => 'DESC']
+]);
 
 require_once '../../views/user/transfer.php';

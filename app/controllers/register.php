@@ -49,10 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if ($userClass->phoneExists($phone)) {
             $error = 'Số điện thoại đã tồn tại';
         } else {
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $db->query("INSERT INTO users (username, email, phone, password) VALUES ('$username', '$email', '$phone', '$password')");
-            $user = $userClass->findByUsername($username);
-            $_SESSION['user_id'] = $user['id'];
+            $db->insert('users', [
+                'username' => $username,
+                'email' => $email,
+                'phone' => $phone,
+                'password' => bcrypt($password)
+            ]);
+            $_SESSION['user_id'] = $db->id();
             redirect('/');
         }
     }

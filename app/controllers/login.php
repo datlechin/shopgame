@@ -23,19 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === '') {
         $error = 'Vui lòng nhập tên đăng nhập';
     } else {
-        $result = $db->query("SELECT * FROM users WHERE username = '$username'");
-        $num_rows = $result->num_rows;
+        $user = $userClass->findByUsername($username);
 
-        if ($num_rows === 0) {
-            $error = 'Tên đăng nhập không tồn tại';
+        if ($user !== null && password_verify($password, $user['password']) === true) {
+            $_SESSION['user_id'] = $user['id'];
+            header('Location: /');
         } else {
-            $user = $result->fetch_assoc();
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
-                header('Location: /');
-            } else {
-                $error = 'Tên đăng nhập hoặc mật khẩu không đúng';
-            }
+            $error = 'Tên đăng nhập hoặc mật khẩu không đúng';
         }
     }
 }

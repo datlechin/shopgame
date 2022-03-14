@@ -8,67 +8,49 @@
  * Vui lòng không xóa các dòng này
  */
 
+use ShopGame\core\Medoo;
+
 class User
 {
     private object $db;
 
-    public function __construct($db)
+    public function __construct(Medoo $db)
     {
         $this->db = $db;
     }
 
     public function findById($id): array|null
     {
-        return $this->db->query("SELECT * FROM users WHERE id = '$id'")->fetch_assoc();
+        return $this->db->select('users', '*', ['id' => $id])[0] ?? null;
     }
 
     public function findByUsername($username): array|null
     {
-        return $this->db->query("SELECT * FROM users WHERE username = '$username'")->fetch_assoc();
+        return $this->db->select('users', '*', ['username' => $username])[0] ?? null;
     }
 
     public function findByIdOrUsername($string): array|null
     {
-        return $this->db->query("SELECT * FROM users WHERE id = '$string' OR username = '$string'")->fetch_assoc();
-    }
-
-    public function findAll(): array
-    {
-        $result = $this->db->query("SELECT * FROM users");
-        $users = [];
-        foreach ($result as $user) {
-            $users[] = $user;
-        }
-
-        return $users;
+        return $this->db->select('users', '*', ['OR' => ['id' => $string, 'username' => $string]])[0] ?? null;
     }
 
     public function usernameExists($username): bool
     {
-        $result = $this->db->query("SELECT * FROM users WHERE username = '$username'");
-        return $result->num_rows > 0;
+        return $this->db->has('users', ['username' => $username]);
     }
 
     public function emailExists($email): bool
     {
-        $result = $this->db->query("SELECT * FROM users WHERE email = '$email'");
-        return $result->num_rows > 0;
+        return $this->db->has('users', ['email' => $email]);
     }
 
     public function phoneExists($phone): bool
     {
-        $result = $this->db->query("SELECT * FROM users WHERE phone = '$phone'");
-        return $result->num_rows > 0;
+        return $this->db->has('users', ['phone' => $phone]);
     }
 
     public function isLoggedIn(): bool
     {
-        if (isset($_SESSION['user_id'])) {
-            $user = $this->findById($_SESSION['user_id']);
-            if ($user) {
-                return true;
-            }
-        }
-        return false;
+        return isset($_SESSION['user_id']) && $this->db->has('users', ['id' => $_SESSION['user_id']]);
     }
 }

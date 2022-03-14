@@ -37,8 +37,7 @@ function isCurrentUrl($url = ''): string
 function getUsernameById($id): string
 {
     global $db;
-    $result = $db->query("SELECT username FROM users WHERE id = $id");
-    $user = $result->fetch_assoc();
+    $user = $db->select('users', ['username'], ['id' => $id])[0];
 
     return $user['username'];
 }
@@ -81,4 +80,9 @@ function redirectIfNotLoggedIn()
     if (!$userClass->isLoggedIn()) {
         redirect('login');
     }
+}
+
+function bcrypt($password): string
+{
+    return password_hash($password, PASSWORD_BCRYPT);
 }

@@ -31,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Mật khẩu phải có độ dài từ 6 đến 32 ký tự';
     } else if (password_verify($old_password, $user['password']) === false) {
         $error = 'Mật khẩu cũ không đúng';
+    } else if (password_verify($password, $user['password']) === true) {
+        $error = 'Mật khẩu mới không được giống với mật khẩu cũ';
     } else {
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "UPDATE users SET password = '$password' WHERE id = {$user['id']}";
-        $db->query($query);
+        $db->update('users', ['password' => bcrypt($password)], ['id' => $user['id']]);
         $success = 'Đổi mật khẩu thành công';
     }
 }

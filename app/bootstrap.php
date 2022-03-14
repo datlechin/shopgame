@@ -8,14 +8,24 @@
  * Vui lòng không xóa các dòng này
  */
 
+use ShopGame\core\Medoo;
+
 session_start();
 ob_start();
 
 require_once 'config.php';
 require_once 'helpers.php';
+require_once 'core/Medoo.php';
 require_once 'core/User.php';
 
-$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$db = new Medoo([
+    'type' => 'mysql',
+    'host' => DB_HOST,
+    'database' => DB_NAME,
+    'username' => DB_USER,
+    'password' => DB_PASS,
+]);
+
 $userClass = new User($db);
 
 if ($userClass->isLoggedIn()) {
