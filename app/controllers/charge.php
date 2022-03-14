@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $charges = $db->select('charges', '*', [
-    'user_id' => $user['id']
+    'user_id' => $user['id'],
+    'ORDER' => ['id' => 'DESC']
 ]);
 
 require_once '../views/charge.php';
