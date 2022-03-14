@@ -7,7 +7,7 @@ Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình ph�
 ## Yêu cầu hệ thống
 
 - Phiên bản PHP >= 8.x
-- MySQL
+- `pdo_mysql` ext
 
 ## Hướng dẫn sử dụng:
 1. Tải source code về máy (Code -> Download zip).
