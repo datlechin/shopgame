@@ -27,7 +27,7 @@ function cleanInput($data): string
 
 function isCurrentUrl($url = ''): string
 {
-    if (str_contains($_SERVER['REQUEST_URI'], $url)) {
+    if ($_SERVER['REQUEST_URI'] == $url) {
         return true;
     }
 
