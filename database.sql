@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `charges`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE `categories`
+CREATE TABLE IF NOT EXISTS `categories`
 (
     `id`           int          NOT NULL AUTO_INCREMENT,
     `type`         varchar(45)  NOT NULL,
