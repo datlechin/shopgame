@@ -13,6 +13,7 @@ use ShopGame\core\Medoo;
 session_start();
 ob_start();
 
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once 'config.php';
 require_once 'helpers.php';
 require_once 'core/Medoo.php';

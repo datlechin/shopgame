@@ -52,9 +52,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+$count = $db->count('charges', ['user_id' => $user['id']]);
+
+try {
+    $pagination = new \ShopGame\core\Pagination([
+        'totalCount' => $count,
+    ]);
+} catch (\Exception $e) {
+    die($e->getMessage());
+}
+
 $charges = $db->select('charges', '*', [
     'user_id' => $user['id'],
-    'ORDER' => ['id' => 'DESC']
+    'ORDER' => ['id' => 'DESC'],
+    'LIMIT' => [$pagination->offset, $pagination->limit]
 ]);
 
 require_once '../views/charge.php';

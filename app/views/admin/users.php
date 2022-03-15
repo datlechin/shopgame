@@ -58,9 +58,10 @@ require_once 'partials/header.php';
                                 </tbody>
                             </table>
                         </div>
-
+                        <div class="card-footer clearfix">
+                            <?php \ShopGame\core\PaginationWidget::widget(['pagination' => $pagination]); ?>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

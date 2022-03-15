@@ -78,6 +78,7 @@ require_once '../../views/partials/header.php';
                     </tr>
                     <?php endforeach; ?>
                 </table>
+                <?php \ShopGame\core\PaginationWidget::widget(['pagination' => $pagination]); ?>
             </div>
         </div>
     </div>

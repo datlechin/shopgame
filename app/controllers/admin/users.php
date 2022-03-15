@@ -8,6 +8,18 @@ if (!$userClass->isAdmin()) {
 
 $title = 'Người dùng';
 
-$users = $db->select('users', '*');
+$count = $db->count('users');
+
+try {
+    $pagination = new \ShopGame\core\Pagination([
+        'totalCount' => $count,
+    ]);
+} catch (\Exception $e) {
+    die($e->getMessage());
+}
+
+$users = $db->select('users', '*', [
+    'LIMIT' => [$pagination->offset, $pagination->limit]
+]);
 
 require_once '../../views/admin/users.php';
