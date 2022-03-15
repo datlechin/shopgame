@@ -42,6 +42,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/users" class="nav-link <?php echo (isCurrentUrl('/admin/users')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Người dùng
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/tran-log" class="nav-link <?php echo (isCurrentUrl('/admin/tran-log')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-retweet"></i>
                         <p>

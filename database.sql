@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `users`
     `email`      varchar(255) NOT NULL,
     `phone`      varchar(255)          DEFAULT NULL,
     `balance`    int(11)               DEFAULT 0,
-    `role`       varchar(45)  NOT NULL DEFAULT 'member',
+    `role`       varchar(45)  NOT NULL DEFAULT 'user',
     `ban`        tinyint(4)            DEFAULT 0,
     `created_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,

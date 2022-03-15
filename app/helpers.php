@@ -86,3 +86,20 @@ function bcrypt($password): string
 {
     return password_hash($password, PASSWORD_BCRYPT);
 }
+
+function roleName($role): string
+{
+    return match ($role) {
+        'admin' => 'Quản trị viên',
+        'user' => 'Người dùng',
+        default => 'Không xác định',
+    };
+}
+
+function isBanned($id): bool
+{
+    global $db;
+    $user = $db->select('users', ['ban'], ['id' => $id])[0];
+
+    return $user['ban'] == 1;
+}
