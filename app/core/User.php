@@ -13,12 +13,12 @@ use ShopGame\core\Medoo;
 class User
 {
     private object $db;
-    private string $user_id;
+    private string|null $user_id;
 
     public function __construct(Medoo $db)
     {
         $this->db = $db;
-        $this->user_id = $_SESSION['user_id'];
+        $this->user_id = $_SESSION['user_id'] ?? null;
     }
 
     public function findById($id): array|null

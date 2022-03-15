@@ -28,7 +28,7 @@ require_once '../../views/partials/header.php';
                 </tr>
                 <tr>
                     <th scope="row">Nhóm tài khoản:</th>
-                    <td>Thành viên</td>
+                    <td><?php echo roleName($user['role']); ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Ngày tham gia:</th>
