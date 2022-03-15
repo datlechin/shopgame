@@ -29,6 +29,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://zalo.me/g/ohmsbz685" target="_blank">Nhóm ZALO Dev</a>
                 </li>
+                <?php if ($userClass->isAdmin()): ?>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="/admin">Trang quản trị</a>
+                </li>
+                <?php endif; ?>
             </ul>
 
             <div class="d-flex align-items-center">

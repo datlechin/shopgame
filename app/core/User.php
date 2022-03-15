@@ -13,10 +13,12 @@ use ShopGame\core\Medoo;
 class User
 {
     private object $db;
+    private string $user_id;
 
     public function __construct(Medoo $db)
     {
         $this->db = $db;
+        $this->user_id = $_SESSION['user_id'];
     }
 
     public function findById($id): array|null
@@ -51,6 +53,11 @@ class User
 
     public function isLoggedIn(): bool
     {
-        return isset($_SESSION['user_id']) && $this->db->has('users', ['id' => $_SESSION['user_id']]);
+        return isset($this->user_id) && $this->db->has('users', ['id' => $this->user_id]);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->isLoggedIn() && $this->db->has('users', ['id' => $this->user_id, 'role' => 'admin']);
     }
 }

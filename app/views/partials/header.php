@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo (isset($title)) ? $title : ''; ?> - Shop bán tài khoản game</title>
-    <link rel="shortcut icon" href="/assets/backend/img/mdb-favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/backend/css/mdb.min.css">
+    <link rel="shortcut icon" href="/assets/frontend/img/mdb-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/frontend/css/mdb.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {

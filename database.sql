@@ -72,3 +72,17 @@ CREATE TABLE IF NOT EXISTS `charges`
     CONSTRAINT `charges_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE `categories`
+(
+    `id`           int          NOT NULL AUTO_INCREMENT,
+    `type`         varchar(45)  NOT NULL,
+    `name`         varchar(255) NOT NULL,
+    `descriptions` text         NULL,
+    `image`        text         NULL,
+    `slug`         varchar(255) NOT NULL,
+    `created_at`   datetime DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`   datetime DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;

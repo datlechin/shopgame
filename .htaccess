@@ -9,3 +9,5 @@ RewriteRule ^user/change-password$ app/controllers/user/change-password.php [L]
 RewriteRule ^user/transfer$ app/controllers/user/transfer.php [L]
 RewriteRule ^user/tran-log$ app/controllers/user/tran-log.php [L]
 RewriteRule ^nap-the$ app/controllers/charge.php [L]
+
+RewriteRule ^admin$ app/controllers/admin/dashboard.php [L]

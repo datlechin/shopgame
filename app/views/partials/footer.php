@@ -1,3 +1,3 @@
-<script src="/assets/backend/js/mdb.min.js"></script>
+<script src="/assets/frontend/js/mdb.min.js"></script>
 </body>
 </html>
