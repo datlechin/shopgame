@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `categories`
     `descriptions` text         NULL,
     `image`        text         NULL,
     `slug`         varchar(255) NOT NULL,
+    `status`       int          NOT NULL,
     `created_at`   datetime DEFAULT CURRENT_TIMESTAMP,
     `updated_at`   datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)

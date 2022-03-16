@@ -50,6 +50,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/categories" class="nav-link <?php echo (isCurrentUrl('/admin/categories')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Danh mục
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/tran-log" class="nav-link <?php echo (isCurrentUrl('/admin/tran-log')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-retweet"></i>
                         <p>
