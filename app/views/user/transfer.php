@@ -32,7 +32,7 @@ require_once '../../views/partials/header.php';
                     <thead>
                     <tr>
                         <th>Thời gian</th>
-                        <th>Tài khoản/ID người nhận</th>
+                        <th>Tài khoản chuyển/nhận</th>
                         <th>Số tiền</th>
                         <th>Nội dung</th>
                         <th>Trạng thái</th>
@@ -43,7 +43,13 @@ require_once '../../views/partials/header.php';
                         <tr>
                             <td><?php echo $transfer['created_at']; ?></td>
                             <td>
-                                <?php echo getUsernameById($transfer['recipient_id']); ?>
+                                <?php
+                                if ($transfer['user_id'] == $user['id']) {
+                                    echo getUsernameById($transfer['recipient_id']);
+                                } else {
+                                    echo getUsernameById($transfer['user_id']);
+                                }
+                                ?>
                             </td>
                             <td><?php echo number_format($transfer['amount']); ?>đ</td>
                             <td><?php echo $transfer['description']; ?></td>
