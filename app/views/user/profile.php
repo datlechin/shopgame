@@ -34,6 +34,10 @@ require_once '../../views/partials/header.php';
                     <th scope="row">Ngày tham gia:</th>
                     <td><?php echo $user['created_at']; ?></td>
                 </tr>
+                <tr>
+                    <th scope="row">Đăng nhập gần đây:</th>
+                    <td><?php echo $user['updated_at']; ?></td>
+                </tr>
                 </tbody></table>
         </div>
     </div>
