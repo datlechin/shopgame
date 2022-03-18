@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <link rel="stylesheet" href="../assets/backend/css/adminlte.min.css">
     <link rel="stylesheet" href="../assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="../assets/backend/plugins/summernote/summernote-bs4.min.css">
+    <script src="../assets/backend/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

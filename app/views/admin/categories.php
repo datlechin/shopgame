@@ -1,6 +1,12 @@
 <?php
+
+use ShopGame\core\PaginationWidget;
+
 require_once 'partials/header.php';
 ?>
+
+    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/theme/monokai.css">
 
     <section class="content">
         <div class="container-fluid">
@@ -10,15 +16,9 @@ require_once 'partials/header.php';
                         <div class="card-header">
                             <h3 class="card-title">Danh sách game & blog</h3>
                             <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="search" class="form-control float-right"
-                                           placeholder="Tìm kiếm">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#addCateModal">Thêm
+                                    mới
+                                </button>
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@ require_once 'partials/header.php';
                                     <th>ID</th>
                                     <th>Tên danh mục</th>
                                     <th>Loại danh mục</th>
-                                    <th>Vai trò</th>
+                                    <th>Hình ảnh</th>
                                     <th>Trạng thái</th>
                                     <th>Cập nhật lúc</th>
                                 </tr>
@@ -38,7 +38,8 @@ require_once 'partials/header.php';
                                 <?php foreach ($categories as $category): ?>
                                     <tr>
                                         <td><?php echo $category['id']; ?></td>
-                                        <td><?php echo $category['name']; ?></td>
+                                        <td><a href="<?php echo $category['slug']; ?>"
+                                               target="_blank"><?php echo $category['name']; ?></a></td>
                                         <td>
                                             <?php if ($category['type'] == 'game'): ?>
                                                 <span class="badge badge-success">Game</span>
@@ -46,7 +47,8 @@ require_once 'partials/header.php';
                                                 <span class="badge badge-warning">Blog</span>
                                             <?php endif; ?>
                                         </td>
-                                        <td><img src="<?php echo $category['image']; ?>" alt="<?php echo $category['name']; ?>" width="80"></td>
+                                        <td><img src="<?php echo $category['image']; ?>"
+                                                 alt="<?php echo $category['name']; ?>" width="80"></td>
                                         <td>
                                             <?php if ($category['status'] == 1): ?>
                                                 <span class="badge badge-success">Hoạt động</span>
@@ -61,13 +63,75 @@ require_once 'partials/header.php';
                             </table>
                         </div>
                         <div class="card-footer clearfix">
-                            <?php \ShopGame\core\PaginationWidget::widget(['pagination' => $pagination]); ?>
+                            <?php PaginationWidget::widget(['pagination' => $pagination]); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="addCateModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thêm danh mục mới</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="cateForm">
+                                <div class="mb-3">
+                                    <label for="type" class="form-label">Loại danh mục</label>
+                                    <select class="form-control" id="type">
+                                        <option value="game">Danh mục game</option>
+                                        <option value="blog">Danh mục blog</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Tên danh mục</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Nhập tên danh mục">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Ảnh thu nhỏ</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="image" accept="image/*">
+                                        <label class="custom-file-label" for="image">Chọn ảnh</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="codeMirror" class="form-label">Mô tả</label>
+                                    <textarea id="codeMirror"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" id="addCate">Thêm mới</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="../assets/backend/plugins/codemirror/codemirror.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/css/css.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/xml/xml.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+        const codeMirror = CodeMirror.fromTextArea(document.getElementById("codeMirror"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+        });
+
+        $("#addCate").click(function () {
+            let description = codeMirror.getValue();
+        });
+    </script>
 
 <?php
 require_once 'partials/footer.php';
