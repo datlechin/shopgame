@@ -10,7 +10,8 @@ require_once '../../views/partials/header.php';
         <div class="col-md-9 mt-4 mt-md-0">
             <h2 class="text-uppercase fw-bold"><?php echo (isset($title)) ? $title : 'Lịch sử giao dịch'; ?></h2>
             <table class="table table-striped">
-                <tbody><tr>
+                <tbody>
+                <tr>
                     <th scope="row">ID của bạn:</th>
                     <th><span class="c-font-uppercase"><?php echo $user['id']; ?></span></th>
                 </tr>
@@ -34,7 +35,12 @@ require_once '../../views/partials/header.php';
                     <th scope="row">Ngày tham gia:</th>
                     <td><?php echo $user['created_at']; ?></td>
                 </tr>
-                </tbody></table>
+                <tr>
+                    <th scope="row">Đăng nhập gần đây:</th>
+                    <td><?php echo $user['updated_at']; ?></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

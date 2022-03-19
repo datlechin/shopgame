@@ -102,3 +102,8 @@ function isBanned($id): bool
 
     return $user['ban'] == 1;
 }
+
+function now(): string
+{
+    return date('Y-m-d H:i:s');
+}
