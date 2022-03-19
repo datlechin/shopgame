@@ -7,7 +7,9 @@
  * Vui lòng không xóa các dòng này
  */
 
-require_once 'app/bootstrap.php';
+const ROOT_PATH = __DIR__;
+
+require_once ROOT_PATH . '/app/bootstrap.php';
 
 $title = 'Trang chủ';
 
