@@ -50,6 +50,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/charges" class="nav-link <?php echo (isCurrentUrl('/admin/charges')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-credit-card"></i>
+                        <p>
+                            Thẻ cào nạp
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/categories" class="nav-link <?php echo (isCurrentUrl('/admin/categories')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>

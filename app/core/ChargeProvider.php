@@ -13,7 +13,8 @@ class ChargeProvider
 {
     private Medoo $db;
     private array $user;
-
+    
+    private string $provider;
     private string $telco;
     private int $amount;
     private string $serial;
@@ -40,6 +41,8 @@ class ChargeProvider
 
     public function postCardVip()
     {
+        $this->provider = 'CARDVIP';
+        
         $dataPost = array(
             'APIKey' => CARDVIP_APIKEY,
             'NetworkCode' => $this->telco,
@@ -90,6 +93,7 @@ class ChargeProvider
     {
         $card = [
             'user_id' => $this->user['id'],
+            'provider' => $this->provider,
             'telco' => $this->telco,
             'amount_declared' => $this->amount,
             'serial' => $this->serial,

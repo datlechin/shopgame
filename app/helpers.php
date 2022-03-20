@@ -107,3 +107,12 @@ function now(): string
 {
     return date('Y-m-d H:i:s');
 }
+
+function chargeProvider($provider): string
+{
+    return match ($provider) {
+        'CARDVIP' => 'Cardvip.vn',
+        'TSR' => 'Thesieure.com',
+        default => 'Không xác định',
+    };
+}
