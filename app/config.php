@@ -12,5 +12,5 @@ const DB_USER = 'root';
 const DB_PASS = '';
 const DB_NAME = 'shop_game';
 
-const CARDVIP_APIKEY = '18ce50d5-3f73-4cae-83e3-2914fbbaa90d';
-const CARDVIP_URL_CALLBACK = 'http://localhost/callback';
+const CARDVIP_APIKEY = '';
+const CARDVIP_URL_CALLBACK = '';
