@@ -56,21 +56,23 @@ CREATE TABLE IF NOT EXISTS `transactions`
 
 CREATE TABLE IF NOT EXISTS `charges`
 (
-    `id`              int      NOT NULL AUTO_INCREMENT,
-    `user_id`         int      NOT NULL,
-    `telco`           tinytext NOT NULL,
-    `amount`          int      DEFAULT '0',
-    `amount_declared` int      NOT NULL,
-    `serial`          tinytext NOT NULL,
-    `pin`             tinytext NOT NULL,
-    `request_id`      int      NOT NULL,
-    `status`          int      DEFAULT '0',
-    `created_at`      datetime DEFAULT CURRENT_TIMESTAMP,
-    `updated_at`      datetime DEFAULT CURRENT_TIMESTAMP,
+    `id`              int(11)     NOT NULL AUTO_INCREMENT,
+    `user_id`         int(11)     NOT NULL,
+    `provider`        varchar(45) NOT NULL,
+    `telco`           tinytext    NOT NULL,
+    `amount`          int(11)  DEFAULT 0,
+    `amount_declared` int(11)     NOT NULL,
+    `serial`          tinytext    NOT NULL,
+    `pin`             tinytext    NOT NULL,
+    `request_id`      int(11)     NOT NULL,
+    `status`          int(11)  DEFAULT 0,
+    `created_at`      datetime DEFAULT current_timestamp(),
+    `updated_at`      datetime DEFAULT current_timestamp(),
     PRIMARY KEY (`id`),
     KEY `charges_users_id_fk` (`user_id`),
     CONSTRAINT `charges_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE = InnoDB
+  AUTO_INCREMENT = 2
   DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `categories`

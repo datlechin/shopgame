@@ -7,6 +7,8 @@
  * Vui lòng không xóa các dòng này
  */
 
+use ShopGame\core\ChargeProvider;
+
 require_once '../bootstrap.php';
 
 redirectIfNotLoggedIn();
@@ -36,17 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Thẻ bạn nạp đã tồn tại trong hệ thống';
         } else {
             $request_id = rand(000000000, 999999999);
-            $card = [
-                'user_id' => $user['id'],
-                'telco' => $telco,
-                'amount_declared' => $amount,
-                'serial' => $serial,
-                'pin' => $pin,
-                'request_id' => $request_id,
-                'status' => '0'
-            ];
-            $db->insert('charges', $card);
-            $success = 'Nạp thẻ thành công';
+
+            $charge = new ChargeProvider($user, $db);
+            $charge->init($telco, (int) $amount, $serial, $pin, $request_id);
+            $charge->postCardVip();
+
+            if ($charge->status == 200) {
+                $success = 'Nạp thẻ thành công';
+            } else {
+                $error = $charge->message;
+            }
         }
     }
 }
