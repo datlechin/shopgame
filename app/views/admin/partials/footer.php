@@ -10,13 +10,7 @@
 <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>
 
-<script src="../assets/backend/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
 <script src="../assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<script src="../assets/backend/js/adminlte.js"></script>
+<script src="../assets/backend/js/adminlte.min.js"></script>
 </body>
 </html>

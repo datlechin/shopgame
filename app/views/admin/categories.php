@@ -115,8 +115,6 @@ require_once 'partials/header.php';
 
     <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="../assets/backend/plugins/codemirror/codemirror.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/css/css.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/xml/xml.js"></script>
     <script src="../assets/backend/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
     <script>
