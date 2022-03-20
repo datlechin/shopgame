@@ -7,6 +7,13 @@ Link nhóm zalo dev và hỗ trợ: https://zalo.me/g/ohmsbz685
 
 ## Live demo: https://ngoquocdat.com (admin/admin)
 
+## Ủng hộ mã nguồn
+Sẽ rất tốt nếu bạn ủng hộ tôi để có thể duy trì và đẩy nhanh quá trình dev, bằng cách donate tiền qua qua các cổng sau:
+- Momo: 0372124043
+- Vietcombank: 1017595600 (NGO QUOC DAT)
+
+Nếu bạn không thể donate được, bạn có thể ủng hộ bằng cách thả sao cho repo này.
+
 ## Yêu cầu hệ thống
 
 - Phiên bản PHP >= 8.x
