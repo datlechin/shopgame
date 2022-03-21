@@ -18,6 +18,7 @@ function redirect($url)
 
 function cleanInput($data): string
 {
+    $data = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $data);
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
