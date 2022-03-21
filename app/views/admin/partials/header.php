@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/backend/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="../assets/backend/css/adminlte.min.css">
+    <link rel="stylesheet" href="../assets/backend/plugins/toastr/toastr.min.css">
     <script src="../assets/backend/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
