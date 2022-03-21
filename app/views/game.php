@@ -10,8 +10,6 @@ require_once 'partials/header.php';
                 <?php echo html_entity_decode($game['description']); ?>
             </div>
         </div>
-    </div>
-    <div class="row">
         <form action="/game/<?php echo $game['slug']; ?>" method="get">
             <div class="row">
                 <div class="col-md-3">
@@ -56,6 +54,7 @@ require_once 'partials/header.php';
             <button class="btn btn-info">Tìm kiếm</button>
             <a href="/game/<?php echo $game['slug']; ?>" class="btn btn-danger">Tất cả</a>
         </form>
+        <p class="text-center text-danger py-3">Hiện tại không có tài khoản nào phù hợp với yêu cầu của bạn! Hệ thống cập nhật nick thường xuyên bạn vui lòng theo dõi web trong thời gian tới !</p>
     </div>
 </div>
 
