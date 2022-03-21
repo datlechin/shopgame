@@ -9,14 +9,12 @@
 
 require_once '../bootstrap.php';
 
-$title = 'Danh mục';
-
 $slug = cleanInput($_GET['slug']);
-
 $result = $db->select('categories', '*', ['slug' => $slug]);
 
 if ($result) {
     $game = $result[0];
+    $title = $game['name'];
     require_once '../views/game.php';
 } else {
     require_once '../controllers/errors/404.php';
