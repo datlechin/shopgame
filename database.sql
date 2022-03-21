@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `categories`
     `id`           int          NOT NULL AUTO_INCREMENT,
     `type`         varchar(45)  NOT NULL,
     `name`         varchar(255) NOT NULL,
-    `descriptions` text         NULL,
+    `description` text         NULL,
     `image`        text         NULL,
     `slug`         varchar(255) NOT NULL,
     `status`       int          NOT NULL,
