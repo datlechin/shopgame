@@ -38,7 +38,7 @@ require_once 'partials/header.php';
                                 <?php foreach ($categories as $category) : ?>
                                     <tr>
                                         <td><?php echo $category['id']; ?></td>
-                                        <td><a href="<?php echo $category['slug']; ?>" target="_blank"><?php echo $category['name']; ?></a></td>
+                                        <td><a href="/<?php echo $category['slug']; ?>" target="_blank"><?php echo $category['name']; ?></a></td>
                                         <td>
                                             <?php if ($category['type'] == 'game') : ?>
                                                 <span class="badge badge-success">Game</span>

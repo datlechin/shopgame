@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->insert('categories', [
                 'type' => $type,
                 'name' => $name,
+                'slug' => slug($name),
                 'description' => $description,
                 'image' => $imagePath,
                 'status' => 1
