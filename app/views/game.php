@@ -7,7 +7,7 @@ require_once 'partials/header.php';
         <div class="col-sm-12">
             <div class="alert alert-info">
                 <h4 class="alert-heading"><?php echo $game['name']; ?></h4>
-                <?php echo $game['description']; ?>
+                <?php echo html_entity_decode($game['description']); ?>
             </div>
         </div>
     </div>
