@@ -29,7 +29,7 @@ require_once 'partials/header.php';
                 <?php foreach ($categories as $category): ?>
                     <div class="col-sm-3 mb-3">
                         <div class="card">
-                            <a href="<?php echo $category['slug']; ?>">
+                            <a href="/game/<?php echo $category['slug']; ?>">
                                 <img class="card-img-top"
                                      src="<?php echo $category['image']; ?>"
                                      alt="<?php echo $category['name']; ?>"
@@ -37,14 +37,14 @@ require_once 'partials/header.php';
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase text-center fw-bold">
-                                    <a href="<?php echo $category['slug']; ?>"><?php echo $category['name']; ?></a>
+                                    <a href="/game/<?php echo $category['slug']; ?>"><?php echo $category['name']; ?></a>
                                 </h5>
                                 <p class="card-text text-center">
                                     Số tài khoản: 1,255<br>
                                     Đã bán: 125
                                 </p>
                                 <div class="text-center">
-                                    <a href="<?php echo $category['slug']; ?>" class="btn btn-primary btn-block">Xem chi tiết</a>
+                                    <a href="/game/<?php echo $category['slug']; ?>" class="btn btn-primary btn-block">Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>

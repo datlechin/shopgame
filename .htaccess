@@ -15,3 +15,7 @@ RewriteRule ^admin/tran-log$ app/controllers/admin/tran-log.php [L]
 RewriteRule ^admin/users$ app/controllers/admin/users.php [L]
 RewriteRule ^admin/categories$ app/controllers/admin/categories.php [L]
 RewriteRule ^admin/charges$ app/controllers/admin/charges.php [L]
+
+RewriteRule ^game/(.*)$ app/controllers/game.php?slug=$1 [L]
+
+ErrorDocument 404 /app/controllers/errors/404.php
