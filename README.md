@@ -1,11 +1,15 @@
 # Shop game
 
 Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình phát triển.
-- Sử dụng [Medoo](https://medoo.in/doc) database.
+
+### Công nghệ sử dụng
+- PHP, MySQL, [Database Medoo](https://medoo.in/)
+- Giao diện người dùng: [MDBootstrap](https://mdbootstrap.com/)
+- Giao diện admin: [AdminLTE](https://adminlte.io/)
 
 Link nhóm zalo dev và hỗ trợ: https://zalo.me/g/ohmsbz685
 
-## Live demo: https://ngoquocdat.com (admin/admin)
+### Live demo: https://ngoquocdat.com (admin/admin)
 
 ## Ủng hộ mã nguồn
 Sẽ rất tốt nếu bạn ủng hộ tôi để có thể duy trì và đẩy nhanh quá trình dev, bằng cách donate tiền qua qua các cổng sau:
@@ -17,20 +21,13 @@ Nếu bạn không thể donate được, bạn có thể ủng hộ bằng các
 ## Yêu cầu hệ thống
 
 - Phiên bản PHP >= 8.x
-- `pdo_mysql` ext
+- `pdo_mysql`, `php_curl`, `php_pdo` ext
 
 ## Hướng dẫn sử dụng:
 1. Tải source code về máy (Code -> Download zip).
 2. Giải nén và up lên hosting hoặc localhost để chạy.
-3. Copy toàn bộ statement trong tệp `database.sql` và dán vào SQL tab.
+3. Copy toàn bộ code trong tệp `database.sql` và dán vào SQL tab.
 4. Cấu hình thông tin database trong tệp `app/config.php`
-
-## Hướng dẫn đóng góp
-
-1. Fork repo này và clone về máy của bạn.
-2. Chạy lệnh `composer install` để cài đặt các thư viện.
-3. Commit code của bạn và push lên Github.
-4. Nhấn Create pull request để đóng góp.
 
 ## Báo cáo lỗi & góp ý
 
