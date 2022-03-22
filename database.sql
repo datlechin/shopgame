@@ -99,3 +99,8 @@ CREATE TABLE IF NOT EXISTS `settings`
     UNIQUE KEY `key_UNIQUE` (`key`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+INSERT INTO `settings`
+VALUES (1, 'title', ''),
+       (2, 'keywords', ''),
+       (3, 'description', '');
