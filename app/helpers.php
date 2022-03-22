@@ -136,3 +136,11 @@ function slug($string): string
 
     return $string;
 }
+
+function setting($key): string
+{
+    global $db;
+    $setting = $db->select('settings', ['value'], ['key' => $key])[0];
+
+    return $setting['value'];
+}
