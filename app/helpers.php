@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\NoReturn;
  */
 
 #[NoReturn]
-function redirect($url)
+function redirect($url): void
 {
     header('Location: ' . $url);
     exit();
@@ -74,7 +74,7 @@ function phoneValidate($phone): bool
     return preg_match('/^0[0-9]{9}$/', $phone);
 }
 
-function redirectIfNotLoggedIn()
+function redirectIfNotLoggedIn(): void
 {
     global $userClass;
 
@@ -147,4 +147,12 @@ function setting($key): string|null
     }
     
     return null;
+}
+
+#[NoReturn]
+function responseJson($data): void
+{
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit();
 }

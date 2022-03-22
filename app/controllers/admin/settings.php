@@ -37,9 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    echo json_encode($data);
-    header('application/json');
-    exit();
+    responseJson($data);
 }
 
 require_once '../../views/admin/settings.php';

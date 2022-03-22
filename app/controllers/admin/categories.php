@@ -61,9 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    echo json_encode($data);
-    header('Content-Type: application/json');
-    exit();
+    responseJson($data);
 }
 
 $count = $db->count('categories');
