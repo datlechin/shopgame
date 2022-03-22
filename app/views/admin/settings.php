@@ -43,7 +43,6 @@ require_once 'partials/header.php';
                     type: 'POST',
                     data: $(this).serialize(),
                     success: function (data) {
-                        data = JSON.parse(data);
                         if (data.status === 'success') {
                             toastr.success(data.message);
                         } else {
