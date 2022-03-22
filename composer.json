@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "8.*",
+        "php": "^8.0",
         "ext-mysqli": "*",
         "ext-curl": "*",
         "ext-pdo": "*"
