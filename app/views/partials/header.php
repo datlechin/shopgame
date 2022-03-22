@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="/assets/frontend/img/mdb-favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/frontend/css/mdb.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             padding-top: 4.3rem;

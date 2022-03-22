@@ -52,6 +52,31 @@ require_once 'partials/header.php';
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="noticeModal">Thông báo</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">...</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary close-modal" data-mdb-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            $(document).ready(function(){
+                if (sessionStorage.getItem('notice') !== '1') {
+                    $('#noticeModal').modal('show');
+                }
+                $('.close-modal').click(function(){
+                    sessionStorage.setItem('notice', '1');
+                });
+            });
+        </script>
     </div>
 
 <?php
