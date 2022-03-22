@@ -30,6 +30,11 @@ class User
         return $this->db->select('users', '*', ['username' => $username])[0] ?? null;
     }
 
+    public function findByAny($string): array|null
+    {
+        return $this->db->select('users', '*', ['OR' => ['username' => $string, 'email' => $string, 'phone' => $string]])[0] ?? null;
+    }
+
     public function findByIdOrUsername($string): array|null
     {
         return $this->db->select('users', '*', ['OR' => ['id' => $string, 'username' => $string]])[0] ?? null;

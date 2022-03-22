@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === '') {
         $error = 'Vui lòng nhập tên đăng nhập';
     } else {
-        $user = $userClass->findByUsername($username);
+        $user = $userClass->findByAny($username);
 
         if ($user !== null && password_verify($password, $user['password']) === true) {
             $db->update('users', ['updated_at' => now()], ['id' => $user['id']]);
