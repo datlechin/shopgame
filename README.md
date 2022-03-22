@@ -20,7 +20,7 @@ Nếu bạn không thể donate được, bạn có thể ủng hộ bằng các
 
 ## Yêu cầu hệ thống
 
-- Phiên bản PHP >= 8.x
+- Phiên bản PHP >= 7.4
 - `pdo_mysql`, `php_curl`, `php_pdo` ext
 
 ## Hướng dẫn sử dụng:
