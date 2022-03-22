@@ -66,7 +66,7 @@ class Pagination
      *
      * @var boolean|string `false` to turn off per-page input by client
      */
-    public bool|string $perPageParam = 'per-page';
+    public string $perPageParam = 'per-page';
 
     /**
      * The per page number limits. The first array element stands for the minimal page size, and the
@@ -151,7 +151,7 @@ class Pagination
      * @param $page
      * @return self
      */
-    public function setPage($page): static
+    public function setPage($page): Pagination
     {
         $this->page = (int) $page;
         $this->_init();
@@ -165,7 +165,7 @@ class Pagination
      * @param $perPage
      * @return self
      */
-    public function setPerPage($perPage): static
+    public function setPerPage($perPage): Pagination
     {
         $this->perPage = (int) $perPage;
 

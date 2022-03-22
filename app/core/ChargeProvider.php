@@ -54,7 +54,7 @@ class ChargeProvider
             'UrlCallback' => CARDVIP_URL_CALLBACK
         );
 
-        $response = $this->curl('https://partner.cardvip.vn/api/createExchange', $dataPost);
+        $response = $this->curl($dataPost);
         $data = json_decode($response);
 
         $this->status = $data->status;
@@ -63,12 +63,12 @@ class ChargeProvider
         if ($this->status == 200) $this->insert();
     }
 
-    private function curl(string $apiUrl, array $dataPost)
+    private function curl(array $dataPost)
     {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $apiUrl,
+            CURLOPT_URL => 'https://partner.cardvip.vn/api/createExchange',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

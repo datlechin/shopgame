@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
-
 /**
  * Mã nguồn shop bán tài khoản game
  * @author Ngô Quốc Đạt <datlechin@gmail.com>
@@ -9,7 +7,6 @@ use JetBrains\PhpStorm\NoReturn;
  * Vui lòng không xóa các dòng này
  */
 
-#[NoReturn]
 function redirect($url): void
 {
     header('Location: ' . $url);
@@ -45,23 +42,41 @@ function getUsernameById($id): string
 
 function getTradeName($trade): string
 {
-    return match ($trade) {
-        'charge' => 'Nạp thẻ',
-        'transfer' => 'Chuyển tiền',
-        'receive' => 'Nhận tiền',
-        'withdraw' => 'Rút tiền',
-        'add_money' => 'Cộng tiền',
-        'sub_money' => 'Trừ tiền',
-        'refund' => 'Hoàn tiền',
-    };
+    switch ($trade) {
+        case 'charge':
+            return 'Nạp thẻ';
+        case 'transfer':
+            return 'Chuyển tiền';
+        case 'receive':
+            return 'Nhận tiền';
+        case 'withdraw':
+            return 'Rút tiền';
+        case 'add_money':
+            return 'Cộng tiền';
+        case 'sub_money':
+            return 'Trừ tiền';
+        case 'refund':
+            return 'Hoàn tiền';
+        default:
+            return 'Không xác định';
+    }
 }
 
-function getTradeType($trade): int
+function getTradeType($trade): ?int
 {
-    return match ($trade) {
-        'charge', 'add_money', 'receive', 'refund' => 1,
-        'transfer', 'sub_money', 'withdraw' => 0,
-    };
+    switch ($trade) {
+        case 'charge':
+        case 'add_money':
+        case 'receive':
+        case 'refund':
+            return 1;
+        case 'transfer':
+        case 'sub_money':
+        case 'withdraw':
+            return 0;
+        default:
+            return null;
+    }
 }
 
 function emailValidate($email): bool
@@ -71,7 +86,7 @@ function emailValidate($email): bool
 
 function phoneValidate($phone): bool
 {
-    return preg_match('/^0[0-9]{9}$/', $phone);
+    return preg_match('/^0\d{9}$/', $phone);
 }
 
 function redirectIfNotLoggedIn(): void
@@ -90,11 +105,14 @@ function bcrypt($password): string
 
 function roleName($role): string
 {
-    return match ($role) {
-        'admin' => 'Quản trị viên',
-        'user' => 'Người dùng',
-        default => 'Không xác định',
-    };
+    switch ($role) {
+        case 'admin':
+            return 'Quản trị viên';
+        case 'user':
+            return 'Người dùng';
+        default:
+            return 'Không xác định';
+    }
 }
 
 function isBanned($id): bool
@@ -112,11 +130,14 @@ function now(): string
 
 function chargeProvider($provider): string
 {
-    return match ($provider) {
-        'CARDVIP' => 'Cardvip.vn',
-        'TSR' => 'Thesieure.com',
-        default => 'Không xác định',
-    };
+    switch ($provider) {
+        case 'CARDVIP':
+            return 'Cardvip.vn';
+        case 'TSR':
+            return 'Thesieure.com';
+        default:
+            return 'Không xác định';
+    }
 }
 
 function slug($string): string
@@ -137,7 +158,7 @@ function slug($string): string
     return $string;
 }
 
-function setting($key): string|null
+function setting($key): ?string
 {
     global $db;
     $query = $db->select('settings', ['value'], ['key' => $key]);
@@ -145,11 +166,10 @@ function setting($key): string|null
     if (count($query) > 0) {
         return $query[0]['value'];
     }
-    
+
     return null;
 }
 
-#[NoReturn]
 function responseJson($data): void
 {
     header('Content-Type: application/json');

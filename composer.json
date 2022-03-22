@@ -1,22 +1,22 @@
 {
-    "name": "datlechin/shopgame",
-    "description": "Mã nguồn shop bán tài khoản game.",
-    "authors": [
-        {
-            "name": "Ngo Quoc Dat",
-            "email": "datlechin@gmail.com",
-            "homepage": "https://ngoquocdat.com"
-        }
-    ],
-    "require": {
-        "php": "^8.0",
-        "ext-mysqli": "*",
-        "ext-curl": "*",
-        "ext-pdo": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "ShopGame\\": "app/"
-        }
+  "name": "datlechin/shopgame",
+  "description": "Mã nguồn shop bán tài khoản game.",
+  "authors": [
+    {
+      "name": "Ngo Quoc Dat",
+      "email": "datlechin@gmail.com",
+      "homepage": "https://ngoquocdat.com"
     }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ShopGame\\": "app/"
+    }
+  }
 }

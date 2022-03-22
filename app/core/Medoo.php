@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Mã nguồn shop bán tài khoản game
- * @author Ngô Quốc Đạt <datlechin@gmail.com>
- * @copyright 2022
- * Vui lòng không xóa các dòng này
- */
-
 declare(strict_types=1);
 /**
  * Medoo Database Framework.
@@ -39,14 +32,14 @@ class Raw
      *
      * @var array
      */
-    public array $map;
+    public $map;
 
     /**
      * The raw string.
      *
      * @var string
      */
-    public string $value;
+    public $value;
 }
 
 class Medoo
@@ -56,14 +49,14 @@ class Medoo
      *
      * @var \PDO
      */
-    public PDO $pdo;
+    public $pdo;
 
     /**
      * The type of database.
      *
      * @var string
      */
-    public string $type;
+    public $type;
 
     /**
      * Table prefix.
@@ -728,7 +721,7 @@ class Medoo
      * @param string $type
      * @return array
      */
-    protected function typeMap(mixed $value, string $type): array
+    protected function typeMap($value, string $type): array
     {
         $map = [
             'NULL' => PDO::PARAM_NULL,
@@ -758,7 +751,7 @@ class Medoo
      * @param bool $isJoin
      * @return string
      */
-    protected function columnPush(array|string &$columns, array &$map, bool $root, bool $isJoin = false): string
+    protected function columnPush(&$columns, array &$map, bool $root, bool $isJoin = false): string
     {
         if ($columns === '*') {
             return $columns;
@@ -784,7 +777,7 @@ class Medoo
                 preg_match('/(?<column>[\p{L}_][\p{L}\p{N}@$#\-_\.]*)(\s*\[(?<type>(String|Bool|Int|Number))\])?/u', (string)$key, $match);
                 $stack[] = "{$raw} AS {$this->columnQuote($match['column'])}";
             } elseif ($isIntKey && is_string($value)) {
-                if ($isJoin && str_contains($value, '*')) {
+                if ($isJoin && strpos($value, '*') !== false) {
                     throw new InvalidArgumentException('Cannot use table.* to select all columns while joining table.');
                 }
 
@@ -803,7 +796,7 @@ class Medoo
                     $columnString = $this->columnQuote($match['column']);
                 }
 
-                if (!$hasDistinct && str_starts_with($value, '@')) {
+                if (!$hasDistinct && strpos($value, '@') === 0) {
                     $columnString = 'DISTINCT ' . $columnString;
                     $hasDistinct = true;
                     array_unshift($stack, $columnString);

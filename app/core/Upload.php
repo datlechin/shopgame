@@ -22,31 +22,33 @@ class Upload
         $this->upload = $upload;
     }
 
-    public function allowed(array $allowed)
+    public function allowed(array $allowed): Upload
     {
         $this->allowed = $allowed;
         return $this;
     }
 
-    public function maxSize(int $maxSize)
+    public function maxSize(int $maxSize): Upload
     {
         $this->maxSize = $maxSize;
         return $this;
     }
 
-    public function path(string $path)
+    public function path(string $path): Upload
     {
         $this->path = $path;
         return $this;
     }
 
-    public function getError()
+    public function getError(): string
     {
         return $this->error;
     }
 
-    public function upload()
+    public function upload(): string
     {
+        $imagePath = '';
+
         if ($this->upload['error'] == 0) {
             if ($this->upload['size'] > $this->maxSize) {
                 $this->error = 'File không được lớn hơn ' . $this->maxSize . ' byte';
@@ -69,7 +71,7 @@ class Upload
         return $imagePath;
     }
 
-    public function getFullPath()
+    public function getFullPath(): string
     {
         return $this->path . $this->upload['name'];
     }

@@ -7,12 +7,12 @@
  * Vui lòng không xóa các dòng này
  */
 
-use ShopGame\core\Medoo;
+namespace ShopGame\core;
 
 class User
 {
     private object $db;
-    private string|null $user_id;
+    private ?string $user_id;
 
     public function __construct(Medoo $db)
     {
@@ -20,22 +20,22 @@ class User
         $this->user_id = $_SESSION['user_id'] ?? null;
     }
 
-    public function findById($id): array|null
+    public function findById($id): ?array
     {
         return $this->db->select('users', '*', ['id' => $id])[0] ?? null;
     }
 
-    public function findByUsername($username): array|null
+    public function findByUsername($username): ?array
     {
         return $this->db->select('users', '*', ['username' => $username])[0] ?? null;
     }
 
-    public function findByAny($string): array|null
+    public function findByAny($string): ?array
     {
         return $this->db->select('users', '*', ['OR' => ['username' => $string, 'email' => $string, 'phone' => $string]])[0] ?? null;
     }
 
-    public function findByIdOrUsername($string): array|null
+    public function findByIdOrUsername($string): ?array
     {
         return $this->db->select('users', '*', ['OR' => ['id' => $string, 'username' => $string]])[0] ?? null;
     }
