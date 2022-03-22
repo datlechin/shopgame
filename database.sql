@@ -77,15 +77,25 @@ CREATE TABLE IF NOT EXISTS `charges`
 
 CREATE TABLE IF NOT EXISTS `categories`
 (
-    `id`           int          NOT NULL AUTO_INCREMENT,
-    `type`         varchar(45)  NOT NULL,
-    `name`         varchar(255) NOT NULL,
+    `id`          int          NOT NULL AUTO_INCREMENT,
+    `type`        varchar(45)  NOT NULL,
+    `name`        varchar(255) NOT NULL,
     `description` text         NULL,
-    `image`        text         NULL,
-    `slug`         varchar(255) NOT NULL,
-    `status`       int          NOT NULL,
-    `created_at`   datetime DEFAULT CURRENT_TIMESTAMP,
-    `updated_at`   datetime DEFAULT CURRENT_TIMESTAMP,
+    `image`       text         NULL,
+    `slug`        varchar(255) NOT NULL,
+    `status`      int          NOT NULL,
+    `created_at`  datetime DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`  datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `settings`
+(
+    `id`    int(11)      NOT NULL,
+    `key`   varchar(255) NOT NULL,
+    `value` text         NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `key_UNIQUE` (`key`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

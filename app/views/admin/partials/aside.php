@@ -73,6 +73,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/settings" class="nav-link <?php echo (isCurrentUrl('/admin/settings')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Cài đặt
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
 
