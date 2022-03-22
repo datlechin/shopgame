@@ -137,10 +137,14 @@ function slug($string): string
     return $string;
 }
 
-function setting($key): string
+function setting($key): string|null
 {
     global $db;
-    $setting = $db->select('settings', ['value'], ['key' => $key])[0];
-
-    return $setting['value'];
+    $query = $db->select('settings', ['value'], ['key' => $key]);
+    
+    if (count($query) > 0) {
+        return $query[0]['value'];
+    }
+    
+    return null;
 }
