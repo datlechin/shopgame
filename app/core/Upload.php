@@ -55,6 +55,11 @@ class Upload
             } else if (!in_array($this->upload['type'], $this->allowed)) {
                 $this->error = 'File không được phép upload';
             } else {
+                $storageImgPath = $this->path . '/storage/images';
+                if (!file_exists($storageImgPath)) {
+                    mkdir($storageImgPath, 0777, true);
+                }
+
                 $imageName = time() . '-' . $this->upload['name'];
                 $imagePath = $this->path . '/storage/images/' . $imageName;
 
