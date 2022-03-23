@@ -5,8 +5,7 @@ use ShopGame\core\PaginationWidget;
 require_once 'partials/header.php';
 ?>
 
-    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/codemirror.css">
-    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="../assets/backend/plugins/summernote/summernote-bs4.min.css">
 
     <section class="content">
         <div class="container-fluid">
@@ -99,8 +98,8 @@ require_once 'partials/header.php';
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="codeMirror" class="form-label">Mô tả</label>
-                                    <textarea id="codeMirror"></textarea>
+                                    <label for="summernote" class="form-label">Mô tả</label>
+                                    <textarea id="summernote"></textarea>
                                 </div>
                             </form>
                         </div>
@@ -115,21 +114,15 @@ require_once 'partials/header.php';
     </section>
 
     <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script src="../assets/backend/plugins/codemirror/codemirror.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/css/css.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/xml/xml.js"></script>
+    <script src="../assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
+
     <script>
         $(function () {
-            bsCustomFileInput.init();
-        });
-        const codeMirror = CodeMirror.fromTextArea(document.getElementById("codeMirror"), {
-            mode: "htmlmixed",
-            theme: "monokai"
+            $('#summernote').summernote()
         });
 
         $("#addCate").click(function () {
-            let description = codeMirror.getValue();
+            let description = $('#summernote').summernote('code');
             let type = $("#type").val();
             let name = $("#name").val();
             let image = $("#image")[0];

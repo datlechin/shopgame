@@ -1,8 +1,7 @@
 <?php
 require_once 'partials/header.php';
 ?>
-    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/codemirror.css">
-    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="../assets/backend/plugins/summernote/summernote-bs4.min.css">
 
     <section class="content">
         <div class="container-fluid">
@@ -43,7 +42,7 @@ require_once 'partials/header.php';
                             <form action="/admin/settings" method="post" id="noticeSettings">
                                 <div class="form-group">
                                     <label>Thông báo trang chủ:</label>
-                                    <textarea name="noticeModal" id="codeMirror" class="form-control"><?php echo setting('noticeModal'); ?></textarea>
+                                    <textarea name="noticeModal" id="summernote" class="form-control"><?php echo setting('noticeModal'); ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Lưu lại</button>
                             </form>
@@ -54,18 +53,16 @@ require_once 'partials/header.php';
         </div>
     </section>
 
-    <script src="../assets/backend/plugins/codemirror/codemirror.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/css/css.js"></script>
-    <script src="../assets/backend/plugins/codemirror/mode/xml/xml.js"></script>
-    <script>
-        const codeMirror = CodeMirror.fromTextArea(document.getElementById("codeMirror"), {
-            mode: "htmlmixed",
-            theme: "monokai",
-        });
-    </script>
+    <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="../assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
 
     <script>
+        $(function () {
+            $('#summernote').summernote({
+                minHeight: 167,
+            })
+        });
+
         $(document).ready(function () {
             $("#generalSettings").submit(function (e) {
                 e.preventDefault();
