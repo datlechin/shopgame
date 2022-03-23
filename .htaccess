@@ -19,4 +19,6 @@ RewriteRule ^admin/settings$ app/controllers/admin/settings.php [L]
 
 RewriteRule ^game/(.*)$ app/controllers/game.php?slug=$1 [L]
 
+RewriteRule ^blog$ app/controllers/blog/index.php [L]
+
 ErrorDocument 404 /app/controllers/errors/404.php
