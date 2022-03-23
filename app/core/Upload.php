@@ -61,7 +61,7 @@ class Upload
                 }
 
                 $imageName = time() . '-' . $this->upload['name'];
-                $imagePath = $this->path . '/storage/images/' . $imageName;
+                $imagePath = $storageImgPath . $imageName;
 
                 if (!move_uploaded_file($this->upload['tmp_name'], $imagePath)) {
                     $this->error = 'Lỗi upload hình ảnh';
