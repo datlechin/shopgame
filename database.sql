@@ -103,4 +103,5 @@ CREATE TABLE IF NOT EXISTS `settings`
 INSERT INTO `settings`
 VALUES (1, 'title', ''),
        (2, 'keywords', ''),
-       (3, 'description', '');
+       (3, 'description', ''),
+       (4, 'noticeModal', '');

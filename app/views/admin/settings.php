@@ -1,6 +1,8 @@
 <?php
 require_once 'partials/header.php';
 ?>
+    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="../assets/backend/plugins/codemirror/theme/monokai.css">
 
     <section class="content">
         <div class="container-fluid">
@@ -14,15 +16,34 @@ require_once 'partials/header.php';
                             <form action="/admin/settings" method="post" id="generalSettings">
                                 <div class="form-group">
                                     <label>Tên trang web:</label>
-                                    <input type="text" name="title" class="form-control" value="<?php echo setting('title'); ?>">
+                                    <input type="text" name="title" class="form-control"
+                                           value="<?php echo setting('title'); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Từ khóa:</label>
-                                    <input type="text" name="keywords" class="form-control" value="<?php echo setting('keywords'); ?>">
+                                    <input type="text" name="keywords" class="form-control"
+                                           value="<?php echo setting('keywords'); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả:</label>
-                                    <textarea name="description" class="form-control" rows="3"><?php echo setting('description'); ?></textarea>
+                                    <textarea name="description" class="form-control"
+                                              rows="3"><?php echo setting('description'); ?></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu lại</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông báo</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="/admin/settings" method="post" id="noticeSettings">
+                                <div class="form-group">
+                                    <label>Thông báo trang chủ:</label>
+                                    <textarea name="noticeModal" id="codeMirror" class="form-control"><?php echo setting('noticeModal'); ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Lưu lại</button>
                             </form>
@@ -33,9 +54,36 @@ require_once 'partials/header.php';
         </div>
     </section>
 
+    <script src="../assets/backend/plugins/codemirror/codemirror.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/css/css.js"></script>
+    <script src="../assets/backend/plugins/codemirror/mode/xml/xml.js"></script>
+    <script>
+        const codeMirror = CodeMirror.fromTextArea(document.getElementById("codeMirror"), {
+            mode: "htmlmixed",
+            theme: "monokai",
+        });
+    </script>
+
     <script>
         $(document).ready(function () {
             $("#generalSettings").submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '/admin/settings',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        if (data.status === 'success') {
+                            toastr.success(data.message);
+                        } else {
+                            toastr.error(data.message);
+                        }
+                    }
+                });
+            })
+            $("#noticeSettings").submit(function (e) {
                 e.preventDefault();
 
                 $.ajax({

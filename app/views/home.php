@@ -59,7 +59,9 @@ require_once 'partials/header.php';
                         <h5 class="modal-title" id="noticeModal">Thông báo</h5>
                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">...</div>
+                    <div class="modal-body">
+                        <?php echo setting('noticeModal'); ?>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary close-modal" data-mdb-dismiss="modal">Đóng</button>
                     </div>
@@ -69,11 +71,11 @@ require_once 'partials/header.php';
         <script>
 
             $(document).ready(function(){
-                if (sessionStorage.getItem('notice') !== '1') {
+                if (sessionStorage.getItem('noticeModal') !== '1') {
                     $('#noticeModal').modal('show');
                 }
                 $('.close-modal').click(function(){
-                    sessionStorage.setItem('notice', '1');
+                    sessionStorage.setItem('noticeModal', '1');
                 });
             });
         </script>

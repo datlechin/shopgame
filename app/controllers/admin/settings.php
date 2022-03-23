@@ -16,14 +16,15 @@ if (!$userClass->isAdmin()) {
 $title = 'Cài đặt trang web';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'] ? cleanInput($_POST['title']) : setting('title');
-    $description = $_POST['description'] ? cleanInput($_POST['description']) : setting('description');
-    $keywords = $_POST['keywords'] ? cleanInput($_POST['keywords']) : setting('keywords');
+    $title = isset($_POST['title']) ? cleanInput($_POST['title']) : setting('title');
+    $description = isset($_POST['description']) ? cleanInput($_POST['description']) : setting('description');
+    $keywords = isset($_POST['keywords']) ? cleanInput($_POST['keywords']) : setting('keywords');
+    $noticeModal = isset($_POST['noticeModal']) ? cleanInput($_POST['noticeModal']) : setting('noticeModal');
 
     $data = array();
 
     foreach ($_POST as $key => $value) {
-        if ($key === 'title' || $key === 'description' || $key === 'keywords') {
+        if ($key === 'title' || $key === 'description' || $key === 'keywords' || $key === 'noticeModal') {
             $db->update('settings', ['value' => $value], ['key' => $key]);
             $data = array(
                 'status' => 'success',
