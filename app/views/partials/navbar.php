@@ -37,6 +37,7 @@
             </ul>
 
             <div class="d-flex align-items-center">
+                <a class="btn btn-dark px-3 me-3" href="https://github.com/datlechin/shopgame" target="_blank"><i class="fab fa-github"></i></a>
                 <?php if ($userClass->isLoggedIn()) : ?>
                     <a class="btn btn-secondary me-3" href="/user/profile">
                         <i class="fas fa-user-alt"></i>
