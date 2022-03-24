@@ -38,16 +38,16 @@
 
             <div class="d-flex align-items-center">
                 <?php if ($userClass->isLoggedIn()) : ?>
-                    <a class="btn btn-outline-black me-3" href="/user/profile">
+                    <a class="btn btn-secondary me-3" href="/user/profile">
                         <i class="fas fa-user-alt"></i>
                         <?php echo $user['username']; ?> - $ <?php echo number_format($user['balance']); ?>
                     </a>
-                    <a class="btn btn-outline-black me-3" href="/logout">Đăng xuất</a>
+                    <a class="btn btn-info me-3" href="/logout">Đăng xuất</a>
                 <?php else : ?>
-                <a href="/login" class="btn btn-outline-black me-3">
+                <a href="/login" class="btn btn-success me-3">
                     <i class="fas fa-sign-in-alt"></i> Đăng nhập
                 </a>
-                <a href="/register" class="btn btn-outline-black me-3">
+                <a href="/register" class="btn btn-danger me-3">
                     <i class="fas fa-user-plus"></i> Đăng ký
                 </a>
                 <?php endif; ?>
