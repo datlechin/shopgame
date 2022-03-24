@@ -27,7 +27,20 @@ require_once 'partials/header.php';
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/admin/charges" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3><?php echo number_format($accounts); ?></h3>
+
+                            <p>Tài khoản game</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-grid"></i>
+                        </div>
+                        <a href="/admin/game-item" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

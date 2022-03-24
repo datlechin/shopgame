@@ -42,7 +42,7 @@ require_once 'partials/header.php';
                             <form action="/admin/settings" method="post" id="noticeSettings">
                                 <div class="form-group">
                                     <label>Thông báo trang chủ:</label>
-                                    <textarea name="noticeModal" id="summernote" class="form-control"><?php echo setting('noticeModal'); ?></textarea>
+                                    <textarea name="noticeModal" id="summernote" class="form-control"><?php echo htmlentities(setting('noticeModal')); ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Lưu lại</button>
                             </form>
