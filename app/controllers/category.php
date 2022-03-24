@@ -10,7 +10,7 @@
 require_once '../bootstrap.php';
 
 $slug = cleanInput($_GET['slug']);
-$result = $db->select('categories', '*', ['slug' => $slug]);
+$result = $db->select('categories', '*', ['type' => 'game', 'slug' => $slug]);
 
 if ($result) {
     $category = $result[0];
