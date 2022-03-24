@@ -57,7 +57,7 @@ class Upload
             } else {
                 $storageImgPath = $this->path . '/storage/images';
                 if (!file_exists($storageImgPath)) {
-                    mkdir($storageImgPath, 0777, true);
+                    mkdir($storageImgPath, 0755, true);
                 }
 
                 $imageName = time() . '-' . $this->upload['name'];

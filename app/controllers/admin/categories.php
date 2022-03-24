@@ -34,30 +34,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'Hình ảnh không được để trống'
         ];
     } else {
-        $upload = new Upload($image);
-        $upload->allowed(['image/jpeg', 'image/png', 'image/gif']);
-        $upload->maxSize(2 * 1024 * 1024);
-        $upload->path(dirname(dirname(dirname(__DIR__))));
-        $imagePath = $upload->upload();
-        if ($upload->getError() != '') {
+        $cateCount = $db->count('categories', ['type' => $type, 'slug' => slug($name)]);
+        if ($cateCount > 0) {
             $data = [
                 'status' => 'error',
-                'message' => $upload->getError()
+                'message' => 'Tên danh mục đã tồn tại'
             ];
         } else {
-            $db->insert('categories', [
-                'type' => $type,
-                'name' => $name,
-                'slug' => slug($name),
-                'description' => $description,
-                'image' => $imagePath,
-                'status' => 1
-            ]);
+            $upload = new Upload($image);
+            $upload->allowed(['image/jpeg', 'image/png', 'image/gif']);
+            $upload->maxSize(2 * 1024 * 1024);
+            $upload->path(dirname(dirname(dirname(__DIR__))));
+            $imagePath = $upload->upload();
+            if ($upload->getError() != '') {
+                $data = [
+                    'status' => 'error',
+                    'message' => $upload->getError()
+                ];
+            } else {
+                $db->insert('categories', [
+                    'type' => $type,
+                    'name' => $name,
+                    'slug' => slug($name),
+                    'description' => $description,
+                    'image' => $imagePath,
+                    'status' => 1
+                ]);
 
-            $data = [
-                'status' => 'success',
-                'message' => 'Thêm mới thành công'
-            ];
+                $data = [
+                    'status' => 'success',
+                    'message' => 'Thêm mới thành công'
+                ];
+            }
         }
     }
 
