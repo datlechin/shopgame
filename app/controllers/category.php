@@ -13,9 +13,10 @@ $slug = cleanInput($_GET['slug']);
 $result = $db->select('categories', '*', ['slug' => $slug]);
 
 if ($result) {
-    $game = $result[0];
-    $title = $game['name'];
-    require_once '../views/game.php';
+    $category = $result[0];
+    $accounts = $db->select('accounts', '*', ['category_id' => $category['id']]);
+    $title = $category['name'];
+    require_once '../views/category.php';
 } else {
     require_once '../controllers/errors/404.php';
 }

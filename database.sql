@@ -105,3 +105,21 @@ VALUES (1, 'title', ''),
        (2, 'keywords', ''),
        (3, 'description', ''),
        (4, 'noticeModal', '');
+
+CREATE TABLE IF NOT EXISTS `accounts`
+(
+    `id`          int(11)      NOT NULL AUTO_INCREMENT,
+    `seller_id`   int(11)      NOT NULL,
+    `buyer_id`    int(11)      NOT NULL,
+    `acc_name`    varchar(255) NOT NULL,
+    `acc_pass`    varchar(255) NOT NULL,
+    `description` text                  DEFAULT NULL,
+    `category_id` int(11)      NOT NULL,
+    `created_at`  datetime              DEFAULT current_timestamp(),
+    `updated_at`  datetime              DEFAULT current_timestamp(),
+    `price`       int(11)      NOT NULL DEFAULT 0,
+    `status`      int(11)               DEFAULT 1,
+    `info_extra`  varchar(255)          DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;

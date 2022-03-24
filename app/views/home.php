@@ -26,7 +26,11 @@ require_once 'partials/header.php';
         <div class="mt-5">
             <h3 class="text-center text-uppercase fw-bold mb-4">Danh mục game</h3>
             <div class="row">
-                <?php foreach ($categories as $category): ?>
+                <?php
+                foreach ($categories as $category) {
+                    $totalAccount = $db->count('accounts', ['category_id' => $category['id']]);
+                    $soldAccount = $db->count('accounts', ['category_id' => $category['id'], 'status' => 0]);
+                ?>
                     <div class="col-sm-3 mb-3">
                         <div class="card">
                             <a href="/game/<?php echo $category['slug']; ?>">
@@ -40,8 +44,8 @@ require_once 'partials/header.php';
                                     <a href="/game/<?php echo $category['slug']; ?>"><?php echo $category['name']; ?></a>
                                 </h5>
                                 <p class="card-text text-center">
-                                    Số tài khoản: 1,255<br>
-                                    Đã bán: 125
+                                    Số tài khoản: <?php echo $totalAccount; ?><br />
+                                    Đã bán: <?php echo $soldAccount; ?>
                                 </p>
                                 <div class="text-center">
                                     <a href="/game/<?php echo $category['slug']; ?>" class="btn btn-primary btn-block">Xem chi tiết</a>
@@ -49,7 +53,7 @@ require_once 'partials/header.php';
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php } ?>
             </div>
         </div>
         <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModal" aria-hidden="true">
@@ -73,10 +77,8 @@ require_once 'partials/header.php';
             $(document).ready(function(){
                 if (sessionStorage.getItem('noticeModal') !== '1') {
                     $('#noticeModal').modal('show');
-                }
-                $('.close-modal').click(function(){
                     sessionStorage.setItem('noticeModal', '1');
-                });
+                }
             });
         </script>
     </div>

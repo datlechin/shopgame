@@ -17,7 +17,7 @@ RewriteRule ^admin/categories$ app/controllers/admin/categories.php [L]
 RewriteRule ^admin/charges$ app/controllers/admin/charges.php [L]
 RewriteRule ^admin/settings$ app/controllers/admin/settings.php [L]
 
-RewriteRule ^game/(.*)$ app/controllers/game.php?slug=$1 [L]
+RewriteRule ^game/(.*)$ app/controllers/category.php?slug=$1 [L]
 
 RewriteRule ^blog$ app/controllers/blog/index.php [L]
 
