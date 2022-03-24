@@ -55,12 +55,12 @@ class Upload
             } else if (!in_array($this->upload['type'], $this->allowed)) {
                 $this->error = 'File không được phép upload';
             } else {
-                $storageImgPath = $this->path . '/storage/images';
+                $storageImgPath = $this->path . '/storage/images/';
                 if (!file_exists($storageImgPath)) {
                     mkdir($storageImgPath, 0755, true);
                 }
 
-                $imageName = time() . '-' . $this->upload['name'];
+                $imageName = time() . '-' . $this->randomString() . '.' . pathinfo($this->upload['name'], PATHINFO_EXTENSION);
                 $imagePath = $storageImgPath . $imageName;
 
                 if (!move_uploaded_file($this->upload['tmp_name'], $imagePath)) {
@@ -76,9 +76,15 @@ class Upload
         return $imagePath;
     }
 
-    public function getFullPath(): string
+    private function randomString(): string
     {
-        return $this->path . $this->upload['name'];
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 10; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
 

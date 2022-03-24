@@ -118,6 +118,7 @@ require_once 'partials/header.php';
 
     <script>
         $(function () {
+            bsCustomFileInput.init();
             $('#summernote').summernote()
         });
 
