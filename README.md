@@ -2,6 +2,8 @@
 
 Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình phát triển.
 
+![](https://i.imgur.com/0Nh4qP7.png)
+
 ### Công nghệ sử dụng
 - PHP, MySQL, [Database Medoo](https://medoo.in/)
 - Giao diện người dùng: [MDBootstrap](https://mdbootstrap.com/)
