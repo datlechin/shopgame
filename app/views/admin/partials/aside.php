@@ -66,6 +66,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/game-item" class="nav-link <?php echo (isCurrentUrl('/admin/game-item')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>
+                            Tài khoản game
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/tran-log" class="nav-link <?php echo (isCurrentUrl('/admin/tran-log')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-retweet"></i>
                         <p>

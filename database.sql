@@ -113,6 +113,7 @@ CREATE TABLE IF NOT EXISTS `accounts`
     `buyer_id`    int(11)      NOT NULL,
     `acc_name`    varchar(255) NOT NULL,
     `acc_pass`    varchar(255) NOT NULL,
+    `image`       text         NULL,
     `description` text                  DEFAULT NULL,
     `category_id` int(11)      NOT NULL,
     `created_at`  datetime              DEFAULT current_timestamp(),
