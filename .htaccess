@@ -15,6 +15,7 @@ RewriteRule ^admin/tran-log$ app/controllers/admin/tran-log.php [L]
 RewriteRule ^admin/users$ app/controllers/admin/users.php [L]
 RewriteRule ^admin/categories$ app/controllers/admin/categories.php [L]
 RewriteRule ^admin/game-item$ app/controllers/admin/game-item/index.php [L]
+RewriteRule ^admin/game-item/create$ app/controllers/admin/game-item/create.php [L]
 RewriteRule ^admin/charges$ app/controllers/admin/charges.php [L]
 RewriteRule ^admin/settings$ app/controllers/admin/settings.php [L]
 

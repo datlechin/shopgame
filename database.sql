@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `accounts`
     `acc_name`    varchar(255) NOT NULL,
     `acc_pass`    varchar(255) NOT NULL,
     `image`       text         NULL,
-    `description` text                  DEFAULT NULL,
+    `content`     text                  DEFAULT NULL,
     `category_id` int(11)      NOT NULL,
     `created_at`  datetime              DEFAULT current_timestamp(),
     `updated_at`  datetime              DEFAULT current_timestamp(),

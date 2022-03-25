@@ -7,8 +7,6 @@
  * Vui lòng không xóa các dòng này
  */
 
-use ShopGame\core\Pagination;
-
 define('PATH_ROOT', dirname(dirname(dirname(__DIR__))));
 
 require_once PATH_ROOT . '/bootstrap.php';
@@ -17,15 +15,11 @@ if (!$userClass->isAdmin()) {
     redirect('/');
 }
 
-$title = 'Tài khoản game';
+$title = 'Thêm mới tài khoản game';
 
-$count = $db->count('categories');
-$pagination = new Pagination([
-    'totalCount' => $count,
+$categories = $db->select('categories', '*', [
+    'type' => 'game',
+    'status' => 1
 ]);
 
-$accounts = $db->select('accounts', '*', [
-    'LIMIT' => [$pagination->offset, $pagination->limit]
-]);
-
-require_once PATH_ROOT . '/views/admin/game-item/index.php';
+require_once PATH_ROOT . '/views/admin/game-item/create.php';
