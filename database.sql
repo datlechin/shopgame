@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `transactions`
 (
     `id`          int         NOT NULL AUTO_INCREMENT,
     `user_id`     int         NOT NULL,
-    `trade_type`  varchar(50) NOT NULL,
+    `trade_type`  int         NOT NULL,
     `amount`      int         NOT NULL,
     `balance`     int         NOT NULL,
     `description` text        NULL,
