@@ -50,6 +50,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/money" class="nav-link <?php echo (isCurrentUrl('/admin/money')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-money-bill-wave"></i>
+                        <p>
+                            Cộng trừ tiền
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/charges" class="nav-link <?php echo (isCurrentUrl('/admin/charges')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-credit-card"></i>
                         <p>

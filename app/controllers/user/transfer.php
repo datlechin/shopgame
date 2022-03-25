@@ -38,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $userBalance = (int)$user['balance'] - (int)$amount;
                 $recipientBalance = (int)$recipient['balance'] + (int)$amount;
-                $userTrade = 'transfer';
-                $recipientTrade = 'receive';
 
                 $db->update('users', ['balance' => $userBalance], ['id' => $user['id']]);
                 $db->update('users', ['balance' => $recipientBalance], ['id' => $recipient['id']]);
@@ -52,14 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ]);
                 $db->insert('transactions', [
                     'user_id' => $user['id'],
-                    'trade_type' => $userTrade,
+                    'trade_type' => 2,
                     'amount' => $amount,
                     'balance' => $userBalance,
                     'description' => 'Chuyển tiền cho ' . $recipient['username'],
                     'status' => 1
                 ]);
                 $db->insert('transactions', ['user_id' => $recipient['id'],
-                    'trade_type' => $recipientTrade,
+                    'trade_type' => 3,
                     'amount' => $amount,
                     'balance' => $recipientBalance,
                     'description' => 'Nhận tiền từ ' . $user['username'],

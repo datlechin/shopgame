@@ -43,37 +43,37 @@ function getUsernameById($id): string
 function getTradeName($trade): string
 {
     switch ($trade) {
-        case 'charge':
+        case '1':
             return 'Nạp thẻ';
-        case 'transfer':
+        case '2':
             return 'Chuyển tiền';
-        case 'receive':
+        case '3':
             return 'Nhận tiền';
-        case 'withdraw':
+        case '4':
             return 'Rút tiền';
-        case 'add_money':
+        case '5':
             return 'Cộng tiền';
-        case 'sub_money':
+        case '6':
             return 'Trừ tiền';
-        case 'refund':
+        case '7':
             return 'Hoàn tiền';
         default:
             return 'Không xác định';
     }
 }
 
-function getTradeType($trade): ?int
+function getTradeType($trade): ?string
 {
     switch ($trade) {
-        case 'charge':
-        case 'add_money':
-        case 'receive':
-        case 'refund':
-            return 1;
-        case 'transfer':
-        case 'sub_money':
-        case 'withdraw':
-            return 0;
+        case '1':
+        case '3':
+        case '5':
+        case '7':
+            return 'plus';
+        case '2':
+        case '4':
+        case '6':
+            return 'minus';
         default:
             return null;
     }

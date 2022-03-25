@@ -64,4 +64,33 @@ class User
     {
         return $this->isLoggedIn() && $this->db->has('users', ['id' => $this->user_id, 'role' => 'admin']);
     }
+
+    public function updateBalance($id, int $money, string $type, string $description)
+    {
+        $user = $this->findById($id);
+        $tradeType = null;
+        $userBalance = null;
+
+        if ($type == 1) {
+            $tradeType = 5;
+            $userBalance = $user['balance'] + $money;
+        } else if ($type == 2) {
+            $tradeType = 6;
+            $userBalance = $user['balance'] - $money;
+        } else if ($type == 3) {
+            $tradeType = 7;
+            $userBalance = $user['balance'] + $money;
+        }
+
+        $this->db->insert('transactions', [
+            'user_id' => $user['id'],
+            'trade_type' => $tradeType,
+            'amount' => $money,
+            'balance' => $userBalance,
+            'description' => $description,
+            'status' => 1
+        ]);
+
+        $this->db->update('users', ['balance' => $userBalance], ['id' => $user['id']]);
+    }
 }

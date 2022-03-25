@@ -58,7 +58,7 @@ require_once '../../views/partials/header.php';
                         <td><?php echo $transaction['created_at']; ?></td>
                         <td><?php echo getTradeName($transaction['trade_type']); ?></td>
                         <td>
-                            <?php if (getTradeType($transaction['trade_type']) === 1): ?>
+                            <?php if (getTradeType($transaction['trade_type']) == 'plus'): ?>
                                 <span class="fw-bold text-success">+<?php echo number_format($transaction['amount']); ?>đ</span>
                             <?php else: ?>
                                 <span class="fw-bold text-danger">-<?php echo number_format($transaction['amount']); ?>đ</span>
