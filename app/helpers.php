@@ -176,3 +176,12 @@ function responseJson($data): void
     echo json_encode($data);
     exit();
 }
+
+function asset($path): string
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' : 'http://';
+    $host = $_SERVER['HTTP_HOST'];
+    $path = $protocol . $host . '/' . $path;
+
+    return $path;
+}
