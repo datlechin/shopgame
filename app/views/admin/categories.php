@@ -5,7 +5,7 @@ use ShopGame\core\PaginationWidget;
 require_once 'partials/header.php';
 ?>
 
-    <link rel="stylesheet" href="../assets/backend/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="<?php echo asset('assets/backend/plugins/summernote/summernote-bs4.min.css'); ?>">
 
     <section class="content">
         <div class="container-fluid">
@@ -113,8 +113,8 @@ require_once 'partials/header.php';
         </div>
     </section>
 
-    <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script src="../assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="<?php echo asset('assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js'); ?>"></script>
+    <script src="<?php echo asset('assets/backend/plugins/summernote/summernote-bs4.min.js'); ?>"></script>
 
     <script>
         $(function () {

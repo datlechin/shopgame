@@ -10,8 +10,8 @@
 <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>
 
-<script src="../assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/backend/plugins/toastr/toastr.min.js"></script>
-<script src="../assets/backend/js/adminlte.min.js"></script>
+<script src="<?php echo asset('assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?php echo asset('assets/backend/plugins/toastr/toastr.min.js'); ?>"></script>
+<script src="<?php echo asset('assets/backend/js/adminlte.min.js'); ?>"></script>
 </body>
 </html>
