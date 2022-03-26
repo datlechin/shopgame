@@ -41,7 +41,7 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                                         <td><?= categoryName($account['category_id']); ?></td>
                                         <td><?php echo $account['acc_name']; ?></td>
                                         <td style="color: #fff"><?php echo $account['acc_pass']; ?></td>
-                                        <td><img src="<?php echo $account['image']; ?>" alt="<?php echo $account['name']; ?>" class="img-size-64"></td>
+                                        <td><img src="<?php echo $account['image']; ?>" class="img-size-64"></td>
                                         <td>
                                             <?php if ($account['status'] == 1) : ?>
                                                 <span class="badge badge-success">Đang bán</span>
