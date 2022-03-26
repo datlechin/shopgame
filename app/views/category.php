@@ -68,7 +68,7 @@ require_once 'partials/header.php';
                             <span class="id">MS: <?= $account['id'] ?></span>
                         </a>
                         <div class="description">
-                            <?= $account['description'] ?>
+                            <?= str_limit($account['description'], 32) ?>
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-between">

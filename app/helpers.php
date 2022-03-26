@@ -192,3 +192,13 @@ function categoryName($category_id): string
 
     return $db->select('categories', ['name'], ['id' => $category_id])[0]['name'];
 }
+
+function str_limit(string $string, int $limit): string
+{
+    if (strlen($string) > $limit) {
+        $string = substr($string, 0, $limit);
+        $string .= '...';
+    }
+
+    return $string;
+}
