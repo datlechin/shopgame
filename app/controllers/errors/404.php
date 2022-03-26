@@ -7,11 +7,11 @@
  * Vui lòng không xóa các dòng này
  */
 
-require_once ROOT_PATH . '/app/bootstrap.php';
+require_once '../../bootstrap.php';
 
 $title = '404 Not Found';
 
-require_once ROOT_PATH . '/app/views/errors/404.php';
+require_once '../../views/errors/404.php';
 
 header('HTTP/1.0 404 Not Found');
 exit();
