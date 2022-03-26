@@ -73,12 +73,10 @@ require_once 'partials/header.php';
                         <div class="card-body">
                             <div class="row justify-content-between">
                                 <div class="col-6">
-                                    <p class="btn btn-outline-danger text-danger"><?= number_format($account['price']) ?>
-                                        đ</p>
+                                    <p class="btn btn-outline-danger text-danger"><?= number_format($account['price']) ?>đ</p>
                                 </div>
                                 <div class="col-6">
-                                    <a href="/acc/<?= $account['id'] ?>"
-                                       class="btn btn-primary">Chi tiết</a>
+                                    <a href="/acc/<?= $account['id'] ?>" class="btn btn-primary detail">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +116,10 @@ require_once 'partials/header.php';
         }
 
         .item-list .btn {
+            padding: 10px;
+        }
+
+        .item-list .detail {
             padding: 10px 15px;
         }
     </style>
