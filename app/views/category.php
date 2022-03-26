@@ -122,6 +122,11 @@ require_once 'partials/header.php';
             padding: 10px;
         }
 
+        .item-list img {
+            width: 100%;
+            height: 180px;
+        }
+
         .item-list .detail {
             padding: 10px 15px;
         }
