@@ -49,11 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
         } else {
             $upload = new Upload($image);
-            $upload->allowed(['image/jpeg', 'image/png', 'image/gif']);
-            $upload->maxSize(2 * 1024 * 1024);
-            $upload->path(dirname(dirname(dirname(__DIR__))));
-            $imagePath = $upload->upload();
-            if ($upload->getError() != '') {
+            $image = $upload->allowed(['image/jpeg', 'image/png', 'image/gif'])
+                ->maxSize(2 * 1024 * 1024)
+                ->path(dirname(__DIR__, 3))
+                ->upload();
+
+            if ($upload->getError()) {
                 $data = [
                     'status' => 'error',
                     'message' => $upload->getError()
@@ -64,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'name' => $name,
                     'slug' => slug($name),
                     'description' => $description,
-                    'image' => $imagePath,
+                    'image' => $image,
                     'status' => 1
                 ]);
 

@@ -87,4 +87,3 @@ class Upload
         return $randomString;
     }
 }
-

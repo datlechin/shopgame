@@ -21,27 +21,27 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
-                                    <th>Người bán</th>
                                     <th>ID</th>
+                                    <th>Người bán</th>
                                     <th>Loại game</th>
                                     <th>Tài khoản</th>
                                     <th>Mật khẩu</th>
                                     <th>Hình ảnh</th>
-                                    <th>Người mua</th>
                                     <th>Trạng thái</th>
-                                    <th>Cập nhật lúc</th>
+                                    <th>Đăng lúc</th>
+                                    <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($accounts as $account) : ?>
+                                <?php
+                                foreach ($accounts as $account): ?>
                                     <tr>
+                                        <td><?php echo $account['id']; ?></td>
                                         <td><?php echo getUsernameById($account['seller_id']); ?></td>
-                                        <td>#<?php echo $account['id']; ?></td>
-                                        <td></td>
+                                        <td><?= categoryName($account['category_id']); ?></td>
                                         <td><?php echo $account['acc_name']; ?></td>
-                                        <td><?php echo $account['acc_pass']; ?></td>
-                                        <td><img src="<?php echo $account['image']; ?>" alt="<?php echo $account['name']; ?>" width="80"></td>
-                                        <td><?php echo getUsernameById($account['buyer_id']); ?></td>
+                                        <td style="color: #fff"><?php echo $account['acc_pass']; ?></td>
+                                        <td><img src="<?php echo $account['image']; ?>" alt="<?php echo $account['name']; ?>" class="img-size-64"></td>
                                         <td>
                                             <?php if ($account['status'] == 1) : ?>
                                                 <span class="badge badge-success">Đang bán</span>
@@ -52,7 +52,11 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                                             <?php endif; ?>
 
                                         </td>
-                                        <td><?php echo $account['updated_at']; ?></td>
+                                        <td><?php echo $account['created_at']; ?></td>
+                                        <td>
+                                            <a href="/admin/game-item/edit/<?php echo $account['id']; ?>" class="btn btn-primary">Sửa</a>
+                                            <a href="/admin/game-item/delete/<?php echo $account['id']; ?>" class="btn btn-danger">Xóa</a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>

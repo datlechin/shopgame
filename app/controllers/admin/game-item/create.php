@@ -7,6 +7,8 @@
  * Vui lòng không xóa các dòng này
  */
 
+use ShopGame\core\Upload;
+
 define('PATH_ROOT', dirname(dirname(dirname(__DIR__))));
 
 require_once PATH_ROOT . '/bootstrap.php';
@@ -21,5 +23,56 @@ $categories = $db->select('categories', '*', [
     'type' => 'game',
     'status' => 1
 ]);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $category_id = cleanInput($_POST['category_id']) ?? $categories[0]['id'];
+    $acc_name = cleanInput($_POST['acc_name']);
+    $acc_pass = cleanInput($_POST['acc_pass']);
+    $price = cleanInput($_POST['price']);
+    $description = cleanInput($_POST['description']);
+    $image = $_FILES['image'];
+    $content = $_FILES['content'];
+
+    if (!in_array($category_id, array_column($categories, 'id'))) {
+        $error = 'Danh mục game đã chọn không hợp lệ';
+    } else if ($acc_name == '') {
+         $error = 'Vui lòng nhập tài khoản game';
+    } else if ($price == '') {
+        $error = 'Vui lòng nhập giá bán';
+    } else if ($price < 1000) {
+        $error = 'Giá bán không được nhỏ hơn 1.000';
+    } else if ($price > 100000000) {
+        $error = 'Giá bán không được lớn hơn 100.000.000';
+    } else {
+        $uploadImage = new Upload($image);
+        $image = $uploadImage->allowed(['image/jpeg', 'image/png', 'image/gif'])
+            ->maxSize(10 * 1024 * 1024)
+            ->path(dirname(__DIR__, 4))
+            ->upload();
+
+        if ($uploadImage->getError()) {
+            $error = $uploadImage->getError();
+        } else {
+            $db->insert('accounts', [
+                'seller_id' => $user['id'],
+                'category_id' => $category_id,
+                'acc_name' => $acc_name,
+                'acc_pass' => $acc_pass,
+                'price' => $price,
+                'image' => $image,
+                'content' => '',
+                'description' => $description,
+                'status' => 1,
+            ]);
+
+            $success = 'Thêm mới tài khoản game thành công';
+
+            $acc_name = '';
+            $acc_pass = '';
+            $price = '';
+            $description = '';
+        }
+    }
+}
 
 require_once PATH_ROOT . '/views/admin/game-item/create.php';

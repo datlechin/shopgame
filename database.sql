@@ -39,15 +39,15 @@ CREATE TABLE IF NOT EXISTS `transfers`
 
 CREATE TABLE IF NOT EXISTS `transactions`
 (
-    `id`          int         NOT NULL AUTO_INCREMENT,
-    `user_id`     int         NOT NULL,
-    `trade_type`  int         NOT NULL,
-    `amount`      int         NOT NULL,
-    `balance`     int         NOT NULL,
-    `description` text        NULL,
-    `status`      int         NOT NULL,
-    `created_at`  datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updated_at`  datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `id`          int      NOT NULL AUTO_INCREMENT,
+    `user_id`     int      NOT NULL,
+    `trade_type`  int      NOT NULL,
+    `amount`      int      NOT NULL,
+    `balance`     int      NOT NULL,
+    `description` text     NULL,
+    `status`      int      NOT NULL,
+    `created_at`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     KEY `transactions_users_id_fk` (`user_id`),
     CONSTRAINT `transactions_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
@@ -110,17 +110,17 @@ CREATE TABLE IF NOT EXISTS `accounts`
 (
     `id`          int(11)      NOT NULL AUTO_INCREMENT,
     `seller_id`   int(11)      NOT NULL,
-    `buyer_id`    int(11)      NOT NULL,
-    `acc_name`    varchar(255) NOT NULL,
-    `acc_pass`    varchar(255) NOT NULL,
-    `image`       text         NULL,
-    `content`     text                  DEFAULT NULL,
+    `buyer_id`    int(11)               DEFAULT NULL,
     `category_id` int(11)      NOT NULL,
-    `created_at`  datetime              DEFAULT current_timestamp(),
-    `updated_at`  datetime              DEFAULT current_timestamp(),
+    `acc_name`    varchar(255) NOT NULL,
+    `acc_pass`    varchar(255)          DEFAULT NULL,
     `price`       int(11)      NOT NULL DEFAULT 0,
-    `status`      int(11)               DEFAULT 1,
-    `info_extra`  varchar(255)          DEFAULT NULL,
+    `image`       text         NULL,
+    `content`     text         DEFAULT NULL,
+    `description` varchar(255) DEFAULT NULL,
+    `status`      int(11)      DEFAULT 1,
+    `created_at`  datetime     DEFAULT current_timestamp(),
+    `updated_at`  datetime     DEFAULT current_timestamp(),
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

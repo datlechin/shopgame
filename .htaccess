@@ -21,7 +21,7 @@ RewriteRule ^admin/settings$ app/controllers/admin/settings.php [L]
 RewriteRule ^admin/money$ app/controllers/admin/money.php [L]
 
 RewriteRule ^game/(.*)$ app/controllers/category.php?slug=$1 [L]
-
+RewriteRule ^acc/(\d+)$ app/controllers/acc.php?id=$1 [L]
 RewriteRule ^blog$ app/controllers/blog/index.php [L]
 
 ErrorDocument 404 /app/controllers/errors/404.php

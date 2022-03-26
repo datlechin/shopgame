@@ -185,3 +185,10 @@ function asset($path): string
 
     return $path;
 }
+
+function categoryName($category_id): string
+{
+    global $db;
+
+    return $db->select('categories', ['name'], ['id' => $category_id])[0]['name'];
+}

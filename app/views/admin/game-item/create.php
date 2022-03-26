@@ -29,15 +29,15 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                             </div>
                             <div class="form-group">
                                 <label for="acc_name">Tài khoản game (*)</label>
-                                <input type="text" id="acc_name" name="acc_name" class="form-control" placeholder="Tài khoản đăng nhập vào game">
+                                <input type="text" id="acc_name" name="acc_name" class="form-control" placeholder="Tài khoản đăng nhập vào game" value="<?= $acc_name ?? '' ?>">
                             </div>
                             <div class="form-group">
                                 <label for="acc_pass">Mật khẩu game</label>
-                                <input type="text" id="acc_pass" name="acc_pass" class="form-control" placeholder="Mật khẩu đăng nhập vào game">
+                                <input type="text" id="acc_pass" name="acc_pass" class="form-control" placeholder="Mật khẩu đăng nhập vào game" value="<?= $acc_pass ?? '' ?>"">
                             </div>
                             <div class="form-group">
                                 <label for="price">Giá bán (*)</label>
-                                <input type="number" id="price" name="price" class="form-control" placeholder="Giá bán tính bằng card">
+                                <input type="number" id="price" name="price" class="form-control" placeholder="Giá bán tính bằng card" value="<?= $price ?? '' ?>"">
                             </div>
                             <div class="form-group">
                                 <label for="image">Ảnh đại diện</label>
@@ -59,7 +59,7 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                             </div>
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
-                                <textarea id="description" name="description" class="form-control" rows="2" placeholder="Thông tin bổ sung thêm về nick ngoài ảnh"></textarea>
+                                <textarea id="description" name="description" class="form-control" rows="2" placeholder="Thông tin bổ sung thêm về nick ngoài ảnh"><?= $description ?? '' ?></textarea>
                             </div>
                             <a href="/admin/game-item" class="btn btn-secondary">Quay lại</a>
                             <button type="submit" class="btn btn-success float-right">Thêm</button>
