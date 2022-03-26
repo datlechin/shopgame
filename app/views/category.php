@@ -91,49 +91,6 @@ require_once 'partials/header.php';
         </div>
     </div>
 
-
-    <style>
-        .item-list .card-body {
-            padding-bottom: 10px;
-        }
-
-        .item-list .id {
-            position: absolute;
-            padding: 2px 7px;
-            background-color: rgba(169, 68, 0, 0.5);
-            top: 5px;
-            right: 0;
-            color: #fff;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .item-list .description {
-            border-radius: 0;
-            display: block;
-            padding: 8px;
-            background-color: #8a6969;
-            font-weight: 700;
-            line-height: 1;
-            font-size: 75%;
-            color: #fff !important;
-            text-align: center;
-        }
-
-        .item-list .btn {
-            padding: 10px;
-        }
-
-        .item-list img {
-            width: 100%;
-            height: 180px;
-        }
-
-        .item-list .detail {
-            padding: 10px 15px;
-        }
-    </style>
-
 <?php
 require_once 'partials/footer.php';
 ?>
