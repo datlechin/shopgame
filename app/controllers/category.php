@@ -7,6 +7,8 @@
  * Vui lòng không xóa các dòng này
  */
 
+use ShopGame\core\Pagination;
+
 require_once '../bootstrap.php';
 
 $slug = cleanInput($_GET['slug']);
@@ -14,8 +16,24 @@ $result = $db->select('categories', '*', ['type' => 'game', 'slug' => $slug]);
 
 if ($result) {
     $category = $result[0];
-    $accounts = $db->select('accounts', '*', ['category_id' => $category['id']]);
     $title = $category['name'];
+
+    $count = $db->count('accounts', [
+        'category_id' => $category['id'],
+        'status' => 1
+    ]);
+
+    $pagination = new Pagination([
+        'totalCount' => $count,
+    ]);
+
+    $accounts = $db->select('accounts', '*', [
+        'category_id' => $category['id'],
+        'status' => 1,
+        'ORDER' => ['id' => 'DESC'],
+        'LIMIT' => [$pagination->offset, $pagination->limit]
+    ]);
+
     require_once '../views/category.php';
 } else {
     require_once '../controllers/errors/404.php';

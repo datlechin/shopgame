@@ -17,13 +17,9 @@ $title = 'Lịch sử giao dịch';
 
 $count = $db->count('transactions');
 
-try {
-    $pagination = new \ShopGame\core\Pagination([
-        'totalCount' => $count,
-    ]);
-} catch (Exception $e) {
-    die($e->getMessage());
-}
+$pagination = new \ShopGame\core\Pagination([
+    'totalCount' => $count,
+]);
 
 $transactions = $db->select('transactions', '*', [
     'ORDER' => ['id' => 'DESC'],

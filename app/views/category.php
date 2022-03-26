@@ -1,4 +1,6 @@
 <?php
+use ShopGame\core\PaginationWidget;
+
 require_once 'partials/header.php';
 ?>
 
@@ -83,6 +85,7 @@ require_once 'partials/header.php';
                     </div>
                 </div>
             <?php endforeach; ?>
+            <?php PaginationWidget::widget(['pagination' => $pagination]); ?>
         </div>
     </div>
 
