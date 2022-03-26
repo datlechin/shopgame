@@ -85,7 +85,9 @@ require_once 'partials/header.php';
                     </div>
                 </div>
             <?php endforeach; ?>
-            <?php PaginationWidget::widget(['pagination' => $pagination]); ?>
+            <div class="py-5">
+                <?php PaginationWidget::widget(['pagination' => $pagination]); ?>
+            </div>
         </div>
     </div>
 
