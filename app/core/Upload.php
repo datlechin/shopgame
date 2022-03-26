@@ -60,7 +60,7 @@ class Upload
                     mkdir($storageImgPath, 0755, true);
                 }
 
-                $imageName = time() . '-' . $this->randomString() . '.' . pathinfo($this->upload['name'], PATHINFO_EXTENSION);
+                $imageName = time() . '_' . $this->randomString() . '.' . pathinfo($this->upload['name'], PATHINFO_EXTENSION);
                 $imagePath = $storageImgPath . $imageName;
 
                 if (!move_uploaded_file($this->upload['tmp_name'], $imagePath)) {
