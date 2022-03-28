@@ -1,9 +1,8 @@
 </div>
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>Mã nguồn mở &copy; <?=date('Y', time())?></strong> Phát triển bởi <strong><a href="https://adminlte.io">Ngô Quốc Đạt</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+        <b>Version</b> 1.0.0-beta
     </div>
 </footer>
 
