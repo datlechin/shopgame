@@ -3,7 +3,7 @@ require_once 'partials/header.php';
 ?>
 
 <div class="container py-4">
-    <div class="row">
+    <div class="row text-sm-start text-center">
         <div class="col-md-4 mb-3">
             <h3 class="fw-bold">#<?= $account['id'] ?></h3>
             <span class="text-danger fw-bold"><?= categoryName($account['category_id']) ?></span>
