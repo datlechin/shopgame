@@ -162,7 +162,7 @@ function setting($key): ?string
 {
     global $db;
     $query = $db->select('settings', ['value'], ['key' => $key]);
-    
+
     if (count($query) > 0) {
         return $query[0]['value'];
     }
@@ -201,4 +201,16 @@ function str_limit(string $string, int $limit): string
     }
 
     return $string;
+}
+
+function str_random($length = 10): string
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+
+    return $randomString;
 }

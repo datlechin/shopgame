@@ -60,7 +60,7 @@ class Upload
                     mkdir($storageImgPath, 0755, true);
                 }
 
-                $imageName = time() . '_' . $this->randomString() . '.' . pathinfo($this->upload['name'], PATHINFO_EXTENSION);
+                $imageName = time() . '_' . str_random(10) . '.' . pathinfo($this->upload['name'], PATHINFO_EXTENSION);
                 $imagePath = $storageImgPath . $imageName;
 
                 if (!move_uploaded_file($this->upload['tmp_name'], $imagePath)) {
@@ -74,16 +74,5 @@ class Upload
         }
 
         return $imagePath;
-    }
-
-    private function randomString(): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < 10; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 }
