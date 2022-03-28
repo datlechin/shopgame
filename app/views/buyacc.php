@@ -51,13 +51,17 @@
             <span class="text-muted small">Nhập mã giảm giá nếu có để nhận ưu đãi</span>
         </div>
     </div>
-    <?php if ($user['balance'] < $account['price']) : ?>
-        <p class="text-danger text-center my-3">Bạn không đủ tiền để mua tài khoản, nhấp vào nút <strong>Nạp thẻ</strong> để nạp thêm tiền.</p>
+    <?php if (!$userClass->isLoggedIn()): ?>
+    <p class="text-danger text-center my-3">Vui lòng đăng nhập để mua tài khoản.</p>
+    <?php elseif ($user['balance'] < $account['price']): ?>
+    <p class="text-danger text-center my-3">Bạn không đủ tiền để mua tài khoản, nhấp vào nút <strong>Nạp thẻ</strong> để nạp thêm tiền.</p>
     <?php endif; ?>
 </div>
 <div class="modal-footer">
-    <?php if ($user['balance'] < $account['price']) : ?>
-    <a href="/nap-the" class="btn btn-success">Nạp thẻ</a>
+    <?php if (!$userClass->isLoggedIn()): ?>
+    <a href="/login" class="btn btn-success">Đăng nhập</a>
+    <?php elseif ($user['balance'] < $account['price']): ?>
+    <a href="/nap-the" class="btn btn-primary">Nạp thẻ</a>
     <?php else: ?>
     <button type="button" class="btn btn-danger">Mua ngay</button>
     <?php endif; ?>
