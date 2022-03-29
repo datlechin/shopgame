@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!in_array($category_id, array_column($categories, 'id'))) {
         $error = 'Danh mục game đã chọn không hợp lệ';
     } else if ($acc_name == '') {
-         $error = 'Vui lòng nhập tài khoản game';
+        $error = 'Vui lòng nhập tài khoản game';
     } else if ($price == '') {
         $error = 'Vui lòng nhập giá bán';
     } else if ($price < 1000) {
