@@ -29,3 +29,13 @@ img.card-img-top {
     color: #fff !important;
     text-align: center;
 }
+
+.game-content img {
+    width: 70%;
+}
+
+@media (max-width: 767px) {
+    .game-content img {
+        width: 100%;
+    }
+}

@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = cleanInput($_POST['price']);
     $description = cleanInput($_POST['description']);
     $image = $_FILES['image'];
-    $content = $_FILES['content'];
+    $content = trim(cleanInput($_POST['content']));
+    $urls = explode(',', $content);
 
     if (!in_array($category_id, array_column($categories, 'id'))) {
         $error = 'Danh mục game đã chọn không hợp lệ';
@@ -43,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Giá bán không được nhỏ hơn 1.000';
     } else if ($price > 100000000) {
         $error = 'Giá bán không được lớn hơn 100.000.000';
+    } else if (count($urls) > 20) {
+        $error = 'Số lượng link không được lớn hơn 20';
     } else {
         $uploadImage = new Upload($image);
         $image = $uploadImage->allowed(['image/jpeg', 'image/png', 'image/gif'])
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'acc_pass' => $acc_pass,
                 'price' => $price,
                 'image' => $image,
-                'content' => '',
+                'content' => $content,
                 'description' => $description,
                 'status' => 1,
             ]);
@@ -71,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $acc_pass = '';
             $price = '';
             $description = '';
+            $content = '';
         }
     }
 }

@@ -24,8 +24,13 @@ require_once 'partials/header.php';
         </div>
     </div>
     <hr>
-    <div class="text-center mt-4">
-        <img src="<?= $account['image'] ?>" alt="" class="img-thumbnail">
+    <div class="text-center mt-4 game-content">
+        <?php
+        $images = explode(',', $account['content']);
+        foreach ($images as $image):
+        ?>
+        <img src="<?= $image ?>" data-fancybox="content" class="my-1 img-thumbnail img-responsive">
+        <?php endforeach; ?>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

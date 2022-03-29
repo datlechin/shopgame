@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="/assets/frontend/css/mdb.min.css">
     <link rel="stylesheet" href="/assets/frontend/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/frontend/plugins/fancyapps/fancybox.css">
+    <script src="/assets/frontend/plugins/jquery/jquery-3.6.0.min.js"></script>
     <style>
         body {
             padding-top: 4.3rem;

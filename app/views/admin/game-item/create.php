@@ -51,12 +51,13 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Nội dung bằng hình ảnh</label>
-                                    <div class="input-group">
+                                    <textarea id="content" name="content" class="form-control" rows="2" placeholder="Dán link ảnh vào đây, phân cách bằng dấu ,"><?= $content ?? '' ?></textarea>
+                                    <!-- <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="content" name="content[]" accept="image/*" multiple>
                                             <label class="custom-file-label" for="image">Ảnh thông tin chi tiết tài khoản</label>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Mô tả</label>
