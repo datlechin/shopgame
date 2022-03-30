@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `users`
     `email`      varchar(255) NOT NULL,
     `phone`      varchar(255)          DEFAULT NULL,
     `balance`    int(11)               DEFAULT 0,
-    `role`       varchar(45)  NOT NULL DEFAULT 'user',
+    `role`       varchar(45)  NOT NULL DEFAULT 'tran',
     `ban`        tinyint(4)            DEFAULT 0,
     `created_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -121,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `accounts`
     `status`      int(11)      DEFAULT 1,
     `created_at`  datetime     DEFAULT current_timestamp(),
     `updated_at`  datetime     DEFAULT current_timestamp(),
+    'sold_at'     datetime     DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

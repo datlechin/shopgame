@@ -57,6 +57,8 @@ function getTradeName($trade): string
             return 'Trừ tiền';
         case '7':
             return 'Hoàn tiền';
+        case '8':
+            return 'Mua tài khoản game';
         default:
             return 'Không xác định';
     }
@@ -73,6 +75,7 @@ function getTradeType($trade): ?string
         case '2':
         case '4':
         case '6':
+        case '8':
             return 'minus';
         default:
             return null;

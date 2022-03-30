@@ -35,3 +35,11 @@ if ($userClass->isLoggedIn()) {
     $user_id = cleanInput($_SESSION['user_id']);
     $user = $userClass->findById($user_id);
 }
+
+if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
+    $success = $_SESSION['success'] ?? null;
+    $error = $_SESSION['error'] ?? null;
+    unset($_SESSION['success']);
+    unset($_SESSION['error']);
+}
+

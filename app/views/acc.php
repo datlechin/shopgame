@@ -3,6 +3,7 @@ require_once 'partials/header.php';
 ?>
 
 <div class="container py-4">
+    <?php require_once 'partials/message.php'; ?>
     <div class="row text-sm-start text-center">
         <div class="col-md-4 mb-3">
             <h3 class="fw-bold">#<?= $account['id'] ?></h3>
@@ -13,7 +14,11 @@ require_once 'partials/header.php';
             <div class="fs-2 fw-bold text-info text-uppercase"><?= number_format($account['price']) ?> ATM</div>
         </div>
         <div class="col-md-4 mb-3">
+            <?php if ($account['status'] == 1): ?>
             <button class="btn btn-info btn-block buyacc">Mua ngay</button>
+            <?php else: ?>
+            <button class="btn btn-danger btn-block buyacc" disabled>Đã bán</button>
+            <?php endif; ?>
             <a href="/nap-the" class="btn btn-success btn-block">Nạp thẻ cào</a>
         </div>
     </div>

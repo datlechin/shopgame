@@ -8,6 +8,7 @@ RewriteRule ^user/profile$ app/controllers/user/profile.php [L]
 RewriteRule ^user/change-password$ app/controllers/user/change-password.php [L]
 RewriteRule ^user/transfer$ app/controllers/user/transfer.php [L]
 RewriteRule ^user/tran-log$ app/controllers/user/tran-log.php [L]
+RewriteRule ^tran/acc$ app/controllers/tran/acc.php [L]
 RewriteRule ^nap-the$ app/controllers/charge.php [L]
 RewriteRule ^callback$ app/controllers/callback.php [L]
 

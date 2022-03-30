@@ -15,10 +15,13 @@ $id = cleanInput($_GET['id']);
 $account = $db->select('accounts', '*', [
     'id' => $id,
     'OR' => [
-        'status' => 0,
-        'status' => 1
+        'status' => 1,
+        'OR' => [
+            'status' => 0
+        ]
     ]
 ]);
+
 
 if (count($account) < 1) require_once ROOT_PATH . '/app/controllers/errors/404.php';
 
