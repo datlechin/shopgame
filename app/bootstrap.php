@@ -42,4 +42,3 @@ if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
     unset($_SESSION['success']);
     unset($_SESSION['error']);
 }
-

@@ -64,6 +64,6 @@ if (isset($_GET['code'])) {
     }
 } else {
     $permissions = ['email'];
-    $loginUrl = $helper->getLoginUrl('http://localhost/login-fb', $permissions);
+    $loginUrl = $helper->getLoginUrl(site_url('login-fb'), $permissions);
     redirect($loginUrl);
 }

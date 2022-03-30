@@ -217,3 +217,12 @@ function str_random($length = 10): string
 
     return $randomString;
 }
+
+function site_url($path = ''): string
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' : 'http://';
+    $host = $_SERVER['HTTP_HOST'];
+    $path = $protocol . $host . '/' . $path;
+
+    return $path;
+}
