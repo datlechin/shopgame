@@ -15,18 +15,23 @@ require_once 'partials/header.php';
                             <form action="/admin/settings" method="post" id="generalSettings">
                                 <div class="form-group">
                                     <label>Tên trang web:</label>
-                                    <input type="text" name="title" class="form-control"
-                                           value="<?php echo setting('title'); ?>">
+                                    <input type="text" name="title" class="form-control" value="<?php echo setting('title'); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Từ khóa:</label>
-                                    <input type="text" name="keywords" class="form-control"
-                                           value="<?php echo setting('keywords'); ?>">
+                                    <input type="text" name="keywords" class="form-control" value="<?php echo setting('keywords'); ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả:</label>
-                                    <textarea name="description" class="form-control"
-                                              rows="3"><?php echo setting('description'); ?></textarea>
+                                    <textarea name="description" class="form-control" rows="3"><?php echo setting('description'); ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <labeL>Ảnh logo</label>
+                                    <input type="text" name="logo" class="form-control" value="<?php echo setting('logo'); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ảnh banner:</label> <span class="small">Phân cách ảnh bằng dấu ,</span>
+                                    <textarea name="banners" class="form-control" rows="3"><?php echo setting('banners'); ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Lưu lại</button>
                             </form>
@@ -53,8 +58,8 @@ require_once 'partials/header.php';
         </div>
     </section>
 
-    <script src="../assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script src="../assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="<?= asset('assets/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
+    <script src="<?= asset('assets/backend/plugins/summernote/summernote-bs4.min.js') ?>"></script>
 
     <script>
         $(function () {

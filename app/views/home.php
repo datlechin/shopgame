@@ -5,15 +5,14 @@ require_once 'partials/header.php';
     <div class="container">
         <div id="carousel" class="carousel slide" data-mdb-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item" data-mdb-interval="5000">
-                    <img src="https://nick.vn/storage/images/lITvp1Ph8r_1623147594.jpg" class="d-block w-100"
-                         alt="Camera"/>
+                <?php
+                $banners = explode(',', setting('banners'));
+                foreach ($banners as $banner):
+                ?>
+                <div class="carousel-item <?=$banner == $banners[0] ? 'active" data-mdb-interval="5000' : null?>">
+                    <img src="<?=$banner?>" class="d-block w-100" alt="<?=setting('title')?>"/>
                 </div>
-                <div class="carousel-item active" data-mdb-interval="5000">
-                    <img src="https://nick.vn/storage/images/XoBF4ldarS_1623147567.jpg" class="d-block w-100"
-                         alt="Exotic Fruits"/>
-                </div>
-            </div>
+                <?php endforeach; ?>
             <button class="carousel-control-prev" data-mdb-target="#carousel" type="button" data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Trước</span>

@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `categories`
 
 CREATE TABLE IF NOT EXISTS `settings`
 (
-    `id`    int(11)      NOT NULL,
+    `id`    int(11)      NOT NULL AUTO_INCREMENT,
     `key`   varchar(255) NOT NULL,
     `value` text         NOT NULL,
     PRIMARY KEY (`id`),
@@ -100,11 +100,13 @@ CREATE TABLE IF NOT EXISTS `settings`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO `settings`
-VALUES (1, 'title', ''),
-       (2, 'keywords', ''),
-       (3, 'description', ''),
-       (4, 'noticeModal', '');
+INSERT INTO `settings` (`key`, value)
+VALUES ('title', 'Shopgame'),
+       ('keywords', ''),
+       ('description', ''),
+       ('noticeModal', ''),
+       ('banners', 'https://nick.vn/storage/images/XoBF4ldarS_1623147567.jpg,https://nick.vn/storage/images/lITvp1Ph8r_1623147594.jpg'),
+       ('logo', 'https://i.imgur.com/CjCS4eG.png');
 
 CREATE TABLE IF NOT EXISTS `accounts`
 (
@@ -116,12 +118,12 @@ CREATE TABLE IF NOT EXISTS `accounts`
     `acc_pass`    varchar(255)          DEFAULT NULL,
     `price`       int(11)      NOT NULL DEFAULT 0,
     `image`       text         NULL,
-    `content`     text         DEFAULT NULL,
-    `description` varchar(255) DEFAULT NULL,
-    `status`      int(11)      DEFAULT 1,
-    `created_at`  datetime     DEFAULT current_timestamp(),
-    `updated_at`  datetime     DEFAULT current_timestamp(),
-    'sold_at'     datetime     DEFAULT NULL,
+    `content`     text                  DEFAULT NULL,
+    `description` varchar(255)          DEFAULT NULL,
+    `status`      int(11)               DEFAULT 1,
+    `created_at`  datetime              DEFAULT current_timestamp(),
+    `updated_at`  datetime              DEFAULT current_timestamp(),
+    'sold_at'     datetime              DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

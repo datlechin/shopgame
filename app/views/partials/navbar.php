@@ -2,9 +2,9 @@
     <div class="container">
         <a class="navbar-brand me-2" href="/">
             <img
-                src="https://i.imgur.com/CjCS4eG.png"
+                src="<?=setting('logo')?>"
                 height="35"
-                alt="MDB Logo"
+                alt="<?=setting('title')?>"
                 loading="lazy"
             />
         </a>
