@@ -31,7 +31,7 @@
                 <?php if ($userClass->isLoggedIn()) : ?>
                     <a class="btn btn-secondary me-3" href="/user/profile">
                         <i class="fas fa-user-alt"></i>
-                        <?php echo $user['username']; ?> - $ <?php echo number_format($user['balance']); ?>
+                        <?= str_limit($user['username'], 15) ?> - $ <?= number_format($user['balance']) ?>
                     </a>
                     <a class="btn btn-info me-3" href="/logout">Đăng xuất</a>
                 <?php else : ?>

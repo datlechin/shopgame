@@ -27,6 +27,7 @@ require_once 'partials/header.php';
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Họ tên</th>
                                     <th>Tên người dùng</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
@@ -40,6 +41,7 @@ require_once 'partials/header.php';
                                 <?php foreach ($users as $user): ?>
                                     <tr>
                                         <td><?php echo $user['id']; ?></td>
+                                        <td><?php echo $user['name']; ?></td>
                                         <td><?php echo $user['username']; ?></td>
                                         <td><?php echo $user['email']; ?></td>
                                         <td><?php echo $user['phone']; ?></td>

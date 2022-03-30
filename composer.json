@@ -12,7 +12,8 @@
     "php": "^7.4",
     "ext-pdo": "*",
     "ext-json": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "facebook/graph-sdk": "^5.7"
   },
   "autoload": {
     "psr-4": {

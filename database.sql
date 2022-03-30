@@ -1,15 +1,17 @@
 CREATE TABLE IF NOT EXISTS `users`
 (
-    `id`         int(11)      NOT NULL AUTO_INCREMENT,
-    `username`   varchar(255) NOT NULL,
-    `password`   varchar(255) NOT NULL,
-    `email`      varchar(255) NOT NULL,
-    `phone`      varchar(255)          DEFAULT NULL,
-    `balance`    int(11)               DEFAULT 0,
-    `role`       varchar(45)  NOT NULL DEFAULT 'user',
-    `ban`        tinyint(4)            DEFAULT 0,
-    `created_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `id`          int(11)      NOT NULL AUTO_INCREMENT,
+    `name`        varchar(255)          DEFAULT NULL,
+    `username`    varchar(255) NOT NULL,
+    `password`    varchar(255)          DEFAULT NULL,
+    `email`       varchar(255) NOT NULL,
+    `phone`       varchar(255)          DEFAULT NULL,
+    `facebook_id` varchar(255)          DEFAULT NULL,
+    `balance`     int(11)               DEFAULT 0,
+    `role`        varchar(45)  NOT NULL DEFAULT 'user',
+    `ban`         tinyint(4)            DEFAULT 0,
+    `created_at`  datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`  datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     UNIQUE KEY `username_UNIQUE` (`username`),
     UNIQUE KEY `email_UNIQUE` (`email`),
@@ -105,8 +107,11 @@ VALUES ('title', 'Shopgame'),
        ('keywords', ''),
        ('description', ''),
        ('noticeModal', ''),
-       ('banners', 'https://nick.vn/storage/images/XoBF4ldarS_1623147567.jpg,https://nick.vn/storage/images/lITvp1Ph8r_1623147594.jpg'),
-       ('logo', 'https://i.imgur.com/CjCS4eG.png');
+       ('banners',
+        'https://nick.vn/storage/images/XoBF4ldarS_1623147567.jpg,https://nick.vn/storage/images/lITvp1Ph8r_1623147594.jpg'),
+       ('logo', 'https://i.imgur.com/CjCS4eG.png'),
+       ('facebook_app_id', ''),
+       ('facebook_app_secret', '');
 
 CREATE TABLE IF NOT EXISTS `accounts`
 (

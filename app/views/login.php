@@ -41,7 +41,7 @@ require_once 'partials/header.php';
                         </form>
                         <div class="text-center mt-3">
                             <p>Hoặc</p>
-                            <a href="#" class="btn btn-primary d-md-inline-block me-3">
+                            <a href="/login-fb" class="btn btn-primary d-md-inline-block me-3">
                                 <i class="fab fa-facebook"></i> Facebook
                             </a>
                             <a href="/register" class="btn btn-danger d-md-inline-block">

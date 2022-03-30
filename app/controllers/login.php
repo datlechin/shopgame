@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $userClass->findByAny($username);
 
         if ($user !== null && password_verify($password, $user['password']) === true) {
-            $db->update('users', ['updated_at' => now()], ['id' => $user['id']]);
             $_SESSION['user_id'] = $user['id'];
             header('Location: /');
         } else {

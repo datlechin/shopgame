@@ -93,4 +93,9 @@ class User
 
         $this->db->update('users', ['balance' => $userBalance], ['id' => $user['id']]);
     }
+
+    public function findByEmail(?string $email)
+    {
+        return $this->db->select('users', '*', ['email' => $email])[0] ?? null;
+    }
 }
