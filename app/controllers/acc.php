@@ -20,7 +20,7 @@ $account = $db->select('accounts', '*', [
     ]
 ]);
 
-if (!$account) require_once ROOT_PATH . '/app/controllers/errors/404.php';
+if (count($account) < 1) require_once ROOT_PATH . '/app/controllers/errors/404.php';
 
 $account = $account[0];
 $title = categoryName($account['category_id']) . ' - ' . $account['id'];

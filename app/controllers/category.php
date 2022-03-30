@@ -12,9 +12,13 @@ use ShopGame\core\Pagination;
 require_once '../bootstrap.php';
 
 $slug = cleanInput($_GET['slug']);
-$result = $db->select('categories', '*', ['type' => 'game', 'slug' => $slug]);
+$result = $db->select('categories', '*', [
+    'type' => 'game',
+    'slug' => $slug,
+    'status' => 1
+]);
 
-if ($result) {
+if (count($result) > 0) {
     $category = $result[0];
     $title = $category['name'];
 
