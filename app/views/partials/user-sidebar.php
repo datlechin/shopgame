@@ -6,5 +6,6 @@
         <a href="/user/tran-log" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/tran-log')) ? 'active' : ''; ?>">Lịch sử giao dịch</a>
         <a href="/user/transfer" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/user/transfer')) ? 'active' : ''; ?>">Chuyển tiền</a>
         <a href="/nap-the" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/nap-the')) ? 'active' : ''; ?>">Nạp thẻ</a>
+        <a href="/tran/acc" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/tran/acc')) ? 'active' : ''; ?>">Tài khoản đã mua</a>
     </div>
 </div>

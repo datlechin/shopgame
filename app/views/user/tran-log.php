@@ -54,28 +54,28 @@ require_once '../../views/partials/header.php';
                     </tr>
                     </thead>
                     <?php foreach ($transactions as $transaction): ?>
-                    <tr>
-                        <td><?php echo $transaction['created_at']; ?></td>
-                        <td><?php echo getTradeName($transaction['trade_type']); ?></td>
-                        <td>
-                            <?php if (getTradeType($transaction['trade_type']) == 'plus'): ?>
-                                <span class="fw-bold text-success">+<?php echo number_format($transaction['amount']); ?>đ</span>
-                            <?php else: ?>
-                                <span class="fw-bold text-danger">-<?php echo number_format($transaction['amount']); ?>đ</span>
-                            <?php endif; ?>
-                        </td>
-                        <td><?php echo number_format($transaction['balance']); ?>đ</td>
-                        <td><?php echo $transaction['description']; ?></td>
-                        <td>
-                            <?php if ($transaction['status'] == 1): ?>
-                                <span class="badge bg-success">Thành công</span>
-                            <?php elseif ($transaction['status'] == 0): ?>
-                                <span class="badge bg-warning">Đang chờ</span>
-                            <?php else: ?>
-                                <span class="badge bg-danger">Thất bại</span>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $transaction['created_at']; ?></td>
+                            <td><?php echo getTradeName($transaction['trade_type']); ?></td>
+                            <td>
+                                <?php if (getTradeType($transaction['trade_type']) == 'plus'): ?>
+                                    <span class="fw-bold text-success">+<?php echo number_format($transaction['amount']); ?>đ</span>
+                                <?php else: ?>
+                                    <span class="fw-bold text-danger">-<?php echo number_format($transaction['amount']); ?>đ</span>
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo number_format($transaction['balance']); ?>đ</td>
+                            <td><?php echo $transaction['description']; ?></td>
+                            <td>
+                                <?php if ($transaction['status'] == 1): ?>
+                                    <span class="badge bg-success">Thành công</span>
+                                <?php elseif ($transaction['status'] == 0): ?>
+                                    <span class="badge bg-warning">Đang chờ</span>
+                                <?php else: ?>
+                                    <span class="badge bg-danger">Thất bại</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </table>
                 <?php \ShopGame\core\PaginationWidget::widget(['pagination' => $pagination]); ?>

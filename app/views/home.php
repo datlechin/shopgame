@@ -28,7 +28,7 @@ require_once 'partials/header.php';
             <div class="row">
                 <?php
                 foreach ($categories as $category) {
-                    $totalAccount = $db->count('accounts', ['category_id' => $category['id']]);
+                    $totalAccount = $db->count('accounts', ['category_id' => $category['id'], 'status' => 1]);
                     $soldAccount = $db->count('accounts', ['category_id' => $category['id'], 'status' => 0]);
                 ?>
                     <div class="col-sm-3 mb-3">
