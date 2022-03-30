@@ -46,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if ($account['price'] < 1000) {
             $error = 'Tài khoản game không thể mua với giá nhỏ hơn 1000đ, vui lòng thử lại sau!';
         } else {
-            $db->update('user', ['balance' => $user['balance'] - $account['price']], ['id' => $user['id']]);
+            $balance = (int) $user['balance'] - (int) $account['price'];
+            $db->update('users', ['balance' => $balance], ['id' => $user['id']]);
             $db->update('accounts', [
                 'status' => 0,
                 'buyer_id' => $user['id'],
@@ -55,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->insert('transactions', ['user_id' => $user['id'],
                 'trade_type' => 8,
                 'amount' => $account['price'],
-                'balance' => $user['balance'] - $account['price'],
+                'balance' => $balance,
                 'description' => 'Mua tài khoản game #' . $account['id'],
                 'status' => 1
             ]);
