@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'status' => 0,
                 'buyer_id' => $user['id'],
                 'sold_at' => now()
-            ], ['id' => $id]);
+            ], ['id' => $account['id']]);
             $db->insert('transactions', ['user_id' => $user['id'],
                 'trade_type' => 8,
                 'amount' => $account['price'],
