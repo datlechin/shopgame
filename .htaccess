@@ -27,4 +27,6 @@ RewriteRule ^acc/(\d+)$ app/controllers/acc.php?id=$1 [L]
 RewriteRule ^buyacc/(\d+)$ app/controllers/buyacc.php?id=$1 [L]
 RewriteRule ^blog$ app/controllers/blog/index.php [L]
 
+RewriteRule ^sponsors$ app/controllers/sponsors.php [L]
+
 ErrorDocument 404 /app/controllers/errors/404.php
