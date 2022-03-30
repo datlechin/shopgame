@@ -12,7 +12,7 @@ require_once 'partials/header.php';
                             <h3 class="card-title">Chung</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/settings" method="post" id="generalSettings">
+                            <form action="/admin/settings" method="post">
                                 <div class="form-group">
                                     <label>Tên trang web:</label>
                                     <input type="text" name="title" class="form-control" value="<?php echo setting('title'); ?>">
@@ -37,6 +37,24 @@ require_once 'partials/header.php';
                             </form>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Cấu hình đăng nhập Facebook</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="/admin/settings" method="post">
+                                <div class="form-group">
+                                    <label>ID ứng dụng:</label>
+                                    <input type="text" name="facebook_app_id" class="form-control" value="<?php echo setting('facebook_app_id'); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Secret ứng dụng:</label>
+                                    <input type="text" name="facebook_app_secret" class="form-control" value="<?php echo setting('facebook_app_secret'); ?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu lại</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -44,7 +62,7 @@ require_once 'partials/header.php';
                             <h3 class="card-title">Thông báo</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/settings" method="post" id="noticeSettings">
+                            <form action="/admin/settings" method="post">
                                 <div class="form-group">
                                     <label>Thông báo trang chủ:</label>
                                     <textarea name="noticeModal" id="summernote" class="form-control"><?php echo htmlentities(setting('noticeModal')); ?></textarea>
@@ -69,37 +87,56 @@ require_once 'partials/header.php';
         });
 
         $(document).ready(function () {
-            $("#generalSettings").submit(function (e) {
-                e.preventDefault();
+            // $("#generalSettings").submit(function (e) {
+            //     e.preventDefault();
+            //
+            //     $.ajax({
+            //         url: '/admin/settings',
+            //         type: 'POST',
+            //         data: $(this).serialize(),
+            //         success: function (data) {
+            //             if (data.status === 'success') {
+            //                 toastr.success(data.message);
+            //             } else {
+            //                 toastr.error(data.message);
+            //             }
+            //         }
+            //     });
+            // })
+            // $("#noticeSettings").submit(function (e) {
+            //     e.preventDefault();
+            //
+            //     $.ajax({
+            //         url: '/admin/settings',
+            //         type: 'POST',
+            //         data: $(this).serialize(),
+            //         success: function (data) {
+            //             if (data.status === 'success') {
+            //                 toastr.success(data.message);
+            //             } else {
+            //                 toastr.error(data.message);
+            //             }
+            //         }
+            //     });
+            // })
 
-                $.ajax({
-                    url: '/admin/settings',
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function (data) {
-                        if (data.status === 'success') {
-                            toastr.success(data.message);
-                        } else {
-                            toastr.error(data.message);
-                        }
-                    }
-                });
-            })
-            $("#noticeSettings").submit(function (e) {
-                e.preventDefault();
+            $('form').each(function () {
+                $(this).submit(function (e) {
+                    e.preventDefault();
 
-                $.ajax({
-                    url: '/admin/settings',
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function (data) {
-                        if (data.status === 'success') {
-                            toastr.success(data.message);
-                        } else {
-                            toastr.error(data.message);
+                    $.ajax({
+                        url: '/admin/settings',
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        success: function (data) {
+                            if (data.status === 'success') {
+                                toastr.success(data.message);
+                            } else {
+                                toastr.error(data.message);
+                            }
                         }
-                    }
-                });
+                    });
+                })
             })
         });
     </script>
