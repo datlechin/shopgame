@@ -19,7 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = array();
 
     foreach ($_POST as $key => $value) {
-        $db->update('settings', ['value' => $value], ['key' => $key]);
+        if ($db->has('settings', ['key' => $key])) {
+            $db->update('settings', ['value' => $value], ['key' => $key]);
+        } else {
+            $db->insert('settings', ['key' => $key, 'value' => $value]);
+        }
         $data = array(
             'status' => 'success',
             'message' => 'Cập nhật thành công'
