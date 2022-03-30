@@ -66,6 +66,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/report-sell-acc" class="nav-link <?php echo (isCurrentUrl('/admin/report-sell-acc')) ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-poll"></i>
+                        <p>
+                            Lịch sử bán nick
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/tran-log" class="nav-link <?php echo (isCurrentUrl('/admin/tran-log')) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-retweet"></i>
                         <p>
