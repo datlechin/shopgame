@@ -11,6 +11,8 @@ define('ROOT_PATH', dirname(__DIR__, 2));
 
 require_once ROOT_PATH . '/app/bootstrap.php';
 
+$title = 'Ủng hộ';
+
 $sponsors = array(
     [
         'name' => 'Nguyễn Xuân Nam',
