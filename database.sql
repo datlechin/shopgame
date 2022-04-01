@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `users`
     `facebook_id` varchar(255)          DEFAULT NULL,
     `balance`     int(11)               DEFAULT 0,
     `role`        varchar(45)  NOT NULL DEFAULT 'user',
-    `ban`         tinyint(4)            DEFAULT 0,
+    `lock`        tinyint(4)            DEFAULT 1,
     `created_at`  datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at`  datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),

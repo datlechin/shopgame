@@ -226,3 +226,12 @@ function site_url($path = ''): string
 
     return $path;
 }
+
+function selected($value, $selected): string
+{
+    if ($value == $selected) {
+        return 'selected';
+    }
+
+    return '';
+}

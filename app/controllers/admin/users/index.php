@@ -7,7 +7,11 @@
  * Vui lòng không xóa các dòng này
  */
 
-require_once '../../bootstrap.php';
+use ShopGame\core\Pagination;
+
+define('ROOT_PATH', dirname(__DIR__, 4));
+
+require_once ROOT_PATH . '/app/bootstrap.php';
 
 if (!$userClass->isAdmin()) {
     redirect('/');
@@ -16,17 +20,12 @@ if (!$userClass->isAdmin()) {
 $title = 'Người dùng';
 
 $count = $db->count('users');
-
-try {
-    $pagination = new \ShopGame\core\Pagination([
-        'totalCount' => $count,
-    ]);
-} catch (\Exception $e) {
-    die($e->getMessage());
-}
+$pagination = new Pagination([
+    'totalCount' => $count,
+]);
 
 $users = $db->select('users', '*', [
     'LIMIT' => [$pagination->offset, $pagination->limit]
 ]);
 
-require_once '../../views/admin/users.php';
+require_once ROOT_PATH . '/app/views/admin/users/index.php';

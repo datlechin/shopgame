@@ -1,5 +1,8 @@
 <?php
-require_once 'partials/header.php';
+
+use ShopGame\core\PaginationWidget;
+
+require_once ROOT_PATH . '/app/views/admin/partials/header.php';
 ?>
 
     <section class="content">
@@ -30,11 +33,9 @@ require_once 'partials/header.php';
                                     <th>Họ tên</th>
                                     <th>Tên người dùng</th>
                                     <th>Email</th>
-                                    <th>Số điện thoại</th>
                                     <th>Số dư</th>
-                                    <th>Vai trò</th>
-                                    <th>Trạng thái</th>
                                     <th>Ngày tham gia</th>
+                                    <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -44,24 +45,20 @@ require_once 'partials/header.php';
                                         <td><?php echo $user['name']; ?></td>
                                         <td><?php echo $user['username']; ?></td>
                                         <td><?php echo $user['email']; ?></td>
-                                        <td><?php echo $user['phone']; ?></td>
                                         <td><?php echo number_format($user['balance']); ?></td>
-                                        <td><?php echo roleName($user['role']); ?></td>
-                                        <td>
-                                            <?php if (isBanned($user['id'])): ?>
-                                                <span class="badge badge-danger">Bị khoá</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-success">Hoạt động</span>
-                                            <?php endif; ?>
-                                        </td>
                                         <td><?php echo $user['created_at']; ?></td>
+                                        <td>
+                                            <a href="/admin/users/edit/<?= $user['id'] ?>" class="btn btn-info">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="card-footer clearfix">
-                            <?php \ShopGame\core\PaginationWidget::widget(['pagination' => $pagination]); ?>
+                            <?php PaginationWidget::widget(['pagination' => $pagination]); ?>
                         </div>
                     </div>
                 </div>
@@ -70,5 +67,5 @@ require_once 'partials/header.php';
     </section>
 
 <?php
-require_once 'partials/footer.php';
+require_once ROOT_PATH . '/app/views/admin/partials/footer.php';
 ?>

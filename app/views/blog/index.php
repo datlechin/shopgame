@@ -22,7 +22,7 @@ require_once '../../views/partials/header.php';
             <h4 class="text-uppercase fw-bold">Danh mục</h4>
             <div class="list-group">
                 <?php foreach ($categories as $category): ?>
-                <a href="/blog/<?php echo $category['slug']; ?>" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/blog/ ' . $category['slug'])) ? 'active' : ''; ?>"><?php echo $category['name']; ?></a>
+                    <a href="/blog/<?php echo $category['slug']; ?>" class="list-group-item list-group-item-action <?php echo (isCurrentUrl('/blog/ ' . $category['slug'])) ? 'active' : ''; ?>"><?php echo $category['name']; ?></a>
                 <?php endforeach; ?>
             </div>
         </div>

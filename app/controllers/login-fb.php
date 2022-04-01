@@ -57,7 +57,8 @@ if (isset($_GET['code'])) {
             'username' => $username,
             'email' => $email,
             'phone' => null,
-            'password' => null
+            'password' => null,
+            'facebook_id' => $id,
         ]);
         $_SESSION['user_id'] = $db->id();
         redirect('/');
