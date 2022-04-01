@@ -21,6 +21,8 @@ $id = cleanInput($_GET['id']);
 
 $userEdit = $userClass->findById($id);
 
+if (!$userEdit) require_once ROOT_PATH . '/app/controllers/errors/404.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = cleanInput($_POST['name']);
     $phone = cleanInput($_POST['phone']);
