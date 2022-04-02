@@ -1,6 +1,6 @@
 # Shop game
 
-Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình phát triển.
+Mã nguồn shop bán tài khoản game PHP & MySQL. Đang trong quá trình phát triển, không khuyến khích sử dụng trong thương mại.
 
 ![](https://i.imgur.com/0Nh4qP7.png)
 
