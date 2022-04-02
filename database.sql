@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `accounts`
     `status`      int(11)               DEFAULT 1,
     `created_at`  datetime              DEFAULT current_timestamp(),
     `updated_at`  datetime              DEFAULT current_timestamp(),
-    'sold_at'     datetime              DEFAULT NULL,
+    `sold_at`     datetime              DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
