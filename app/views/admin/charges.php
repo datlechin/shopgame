@@ -60,7 +60,7 @@ require_once 'partials/header.php';
                                                 <span class="badge bg-warning">Đang chờ</span>
                                             <?php elseif ($charge['status'] == 2) : ?>
                                                 <span class="badge bg-info">Sai mệnh giá</span>
-                                            <?php else : ?>
+                                            <?php elseif ($charge['status'] == 3) : ?>
                                                 <span class="badge bg-danger">Thất bại</span>
                                             <?php endif; ?>
                                         </td>
