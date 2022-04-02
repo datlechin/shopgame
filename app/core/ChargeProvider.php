@@ -13,7 +13,7 @@ class ChargeProvider
 {
     private Medoo $db;
     private array $user;
-    
+
     private string $provider;
     private string $telco;
     private int $amount;
@@ -41,21 +41,27 @@ class ChargeProvider
 
     public function postCardVip()
     {
-        $this->provider = 'CARDVIP';
-        
-        $dataPost = array(
-            'APIKey' => CARDVIP_APIKEY,
-            'NetworkCode' => $this->telco,
-            'PricesExchange' => $this->amount,
-            'NumberCard' => $this->pin,
-            'SeriCard' => $this->serial,
-            'IsFast' => true,
-            'RequestId' => $this->request_id,
-            'UrlCallback' => CARDVIP_URL_CALLBACK
-        );
+        if (setting('charge_provider') == 'CARDVIP') {
+            $this->provider = 'CARDVIP';
+            $dataPost = array(
+                'APIKey' => setting('charge_api_key'),
+                'NetworkCode' => $this->telco,
+                'PricesExchange' => $this->amount,
+                'NumberCard' => $this->pin,
+                'SeriCard' => $this->serial,
+                'IsFast' => true,
+                'RequestId' => $this->request_id,
+                'UrlCallback' => site_url('callback')
+            );
 
-        $response = $this->curl($dataPost);
-        $data = json_decode($response);
+            $response = $this->curl('https://partner.cardvip.vn/api/createExchange', $dataPost);
+            $data = json_decode($response);
+        } else {
+            $data = (object) array(
+                'status' => 0,
+                'message' => 'Cổng nạp hiện tại đang bảo trì!'
+            );
+        }
 
         $this->status = $data->status;
         $this->message = $data->message;
@@ -63,12 +69,12 @@ class ChargeProvider
         if ($this->status == 200) $this->insert();
     }
 
-    private function curl(array $dataPost)
+    private function curl($url, array $dataPost)
     {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://partner.cardvip.vn/api/createExchange',
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

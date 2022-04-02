@@ -1,7 +1,7 @@
 <?php
 require_once 'partials/header.php';
 ?>
-    <link rel="stylesheet" href="../assets/backend/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="<?= asset('assets/backend/plugins/summernote/summernote-bs4.min.css') ?>">
 
     <section class="content">
         <div class="container-fluid">
@@ -71,6 +71,27 @@ require_once 'partials/header.php';
                             </form>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Cấu hình nạp thẻ</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="/admin/settings" method="post">
+                                <div class="form-group">
+                                    <label for="charge_provider">Kênh nạp:</label>
+                                    <select name="charge_provider" id="charge_provider" class="form-control custom-select">
+                                        <option value="CARDVIP">Cardvip.vn</option>
+                                        <!-- <option value="TSR">Thesieure.com</option> -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>API Key:</label>
+                                    <input type="text" name="charge_api_key" class="form-control" value="<?php echo setting('charge_api_key'); ?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu lại</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,55 +101,22 @@ require_once 'partials/header.php';
     <script src="<?= asset('assets/backend/plugins/summernote/summernote-bs4.min.js') ?>"></script>
 
     <script>
-        $(function () {
+        $(function() {
             $('#summernote').summernote({
                 minHeight: 167,
             })
         });
 
-        $(document).ready(function () {
-            // $("#generalSettings").submit(function (e) {
-            //     e.preventDefault();
-            //
-            //     $.ajax({
-            //         url: '/admin/settings',
-            //         type: 'POST',
-            //         data: $(this).serialize(),
-            //         success: function (data) {
-            //             if (data.status === 'success') {
-            //                 toastr.success(data.message);
-            //             } else {
-            //                 toastr.error(data.message);
-            //             }
-            //         }
-            //     });
-            // })
-            // $("#noticeSettings").submit(function (e) {
-            //     e.preventDefault();
-            //
-            //     $.ajax({
-            //         url: '/admin/settings',
-            //         type: 'POST',
-            //         data: $(this).serialize(),
-            //         success: function (data) {
-            //             if (data.status === 'success') {
-            //                 toastr.success(data.message);
-            //             } else {
-            //                 toastr.error(data.message);
-            //             }
-            //         }
-            //     });
-            // })
-
-            $('form').each(function () {
-                $(this).submit(function (e) {
+        $(document).ready(function() {
+            $('form').each(function() {
+                $(this).submit(function(e) {
                     e.preventDefault();
 
                     $.ajax({
                         url: '/admin/settings',
                         type: 'POST',
                         data: $(this).serialize(),
-                        success: function (data) {
+                        success: function(data) {
                             if (data.status === 'success') {
                                 toastr.success(data.message);
                             } else {

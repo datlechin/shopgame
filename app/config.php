@@ -11,6 +11,3 @@ const DB_HOST = 'localhost';
 const DB_USER = 'root';
 const DB_PASS = '';
 const DB_NAME = 'shop_game';
-
-const CARDVIP_APIKEY = '';
-const CARDVIP_URL_CALLBACK = '';
