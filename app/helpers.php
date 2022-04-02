@@ -97,7 +97,7 @@ function redirectIfNotLoggedIn(): void
     global $userClass;
 
     if (!$userClass->isLoggedIn()) {
-        redirect('login');
+        redirect(site_url('login'));
     }
 }
 

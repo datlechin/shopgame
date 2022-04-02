@@ -19,7 +19,8 @@ $title = 'Tài khoản đã mua';
 
 $accounts = $db->select('accounts', '*', [
     'buyer_id' => $user['id'],
-    'status' => 0
+    'status' => 0,
+    'ORDER' => ['id' => 'DESC']
 ]);
 
 $pagination = new Pagination([
@@ -28,7 +29,6 @@ $pagination = new Pagination([
 
 $categories = $db->select('categories', '*', [
     'status' => 1,
-    'ORDER' => ['id' => 'DESC'],
     'LIMIT' => [$pagination->offset, $pagination->limit]
 ]);
 
