@@ -54,9 +54,12 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                                             </td>
                                             <td><?php echo $account['created_at']; ?></td>
                                             <td>
+                                                <a href="/acc/<?php echo $account['id']; ?>" target="_blank" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
                                                 <?php if ($account['status'] == 1) : ?>
-                                                    <a href="/admin/game-item/edit/<?php echo $account['id']; ?>" class="btn btn-primary">Sửa</a>
-                                                    <a href="/admin/game-item/delete/<?php echo $account['id']; ?>" class="btn btn-danger">Xóa</a>
+                                                    <a href="/admin/game-item/edit/<?php echo $account['id']; ?>" class="btn btn-primary btn-sm">Sửa</a>
+                                                    <a href="/admin/game-item/delete/<?php echo $account['id']; ?>" class="btn btn-danger btn-sm">Xóa</a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
