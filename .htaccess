@@ -1,5 +1,7 @@
 RewriteEngine On
 
+DirectoryIndex app/controllers/home.php
+
 RewriteRule ^login$ app/controllers/login.php [L]
 RewriteRule ^logout$ app/controllers/logout.php [L]
 RewriteRule ^register$ app/controllers/register.php [L]
