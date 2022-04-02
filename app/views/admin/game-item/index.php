@@ -20,45 +20,47 @@ require_once PATH_ROOT . '/views/admin/partials/header.php';
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Người bán</th>
-                                    <th>Loại game</th>
-                                    <th>Tài khoản</th>
-                                    <th>Mật khẩu</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Trạng thái</th>
-                                    <th>Đăng lúc</th>
-                                    <th>Thao tác</th>
-                                </tr>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Người bán</th>
+                                        <th>Loại game</th>
+                                        <th>Tài khoản</th>
+                                        <th>Mật khẩu</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Trạng thái</th>
+                                        <th>Đăng lúc</th>
+                                        <th>Thao tác</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                foreach ($accounts as $account): ?>
-                                    <tr>
-                                        <td><?php echo $account['id']; ?></td>
-                                        <td><?php echo getUsernameById($account['seller_id']); ?></td>
-                                        <td><?= categoryName($account['category_id']); ?></td>
-                                        <td><?php echo $account['acc_name']; ?></td>
-                                        <td style="color: #fff"><?php echo $account['acc_pass']; ?></td>
-                                        <td><img src="<?php echo $account['image']; ?>" class="img-size-64"></td>
-                                        <td>
-                                            <?php if ($account['status'] == 1) : ?>
-                                                <span class="badge badge-success">Đang bán</span>
-                                            <?php elseif ($account['status'] == 0) : ?>
-                                                <span class="badge badge-info">Đã bán</span>
-                                            <?php elseif ($account['status'] == 2) : ?>
-                                                <span class="badge badge-danger">Đã xóa</span>
-                                            <?php endif; ?>
+                                    <?php
+                                    foreach ($accounts as $account) : ?>
+                                        <tr>
+                                            <td><?php echo $account['id']; ?></td>
+                                            <td><?php echo getUsernameById($account['seller_id']); ?></td>
+                                            <td><?= categoryName($account['category_id']); ?></td>
+                                            <td><?php echo $account['acc_name']; ?></td>
+                                            <td style="color: #fff"><?php echo $account['acc_pass']; ?></td>
+                                            <td><img src="<?php echo $account['image']; ?>" class="img-size-64"></td>
+                                            <td>
+                                                <?php if ($account['status'] == 1) : ?>
+                                                    <span class="badge badge-success">Đang bán</span>
+                                                <?php elseif ($account['status'] == 0) : ?>
+                                                    <span class="badge badge-info">Đã bán</span>
+                                                <?php elseif ($account['status'] == 2) : ?>
+                                                    <span class="badge badge-danger">Đã xóa</span>
+                                                <?php endif; ?>
 
-                                        </td>
-                                        <td><?php echo $account['created_at']; ?></td>
-                                        <td>
-                                            <a href="/admin/game-item/edit/<?php echo $account['id']; ?>" class="btn btn-primary">Sửa</a>
-                                            <a href="/admin/game-item/delete/<?php echo $account['id']; ?>" class="btn btn-danger">Xóa</a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                            </td>
+                                            <td><?php echo $account['created_at']; ?></td>
+                                            <td>
+                                                <?php if ($account['status'] == 1) : ?>
+                                                    <a href="/admin/game-item/edit/<?php echo $account['id']; ?>" class="btn btn-primary">Sửa</a>
+                                                    <a href="/admin/game-item/delete/<?php echo $account['id']; ?>" class="btn btn-danger">Xóa</a>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
