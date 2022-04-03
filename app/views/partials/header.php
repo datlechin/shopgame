@@ -15,11 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/frontend/plugins/fancyapps/fancybox.css">
     <script src="/assets/frontend/plugins/jquery/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            padding-top: 4.3rem;
-        }
-    </style>
 </head>
 <body>
 <?php
