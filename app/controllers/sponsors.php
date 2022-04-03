@@ -16,7 +16,11 @@ $title = 'Ủng hộ';
 $sponsors = array(
     [
         'name' => 'Nguyễn Xuân Nam',
-        'money' => '20000',
+        'money' => 20000,
+    ],
+    [
+        'name' => 'Bùi Văn Hải',
+        'money' => 100000
     ]
 );
 
