@@ -20,26 +20,9 @@ Sẽ rất tốt nếu bạn ủng hộ tôi để có thể duy trì và đẩy
 
 Nếu bạn không thể donate được, bạn có thể ủng hộ bằng cách thả sao cho repo này.
 
-## Yêu cầu hệ thống
+## Hướng dẫn cài đặt và sử dụng
 
-- Phiên bản PHP >= 7.4
-- `pdo_mysql`, `php_curl`, `php_pdo` ext
-
-## Hướng dẫn cài đặt:
-Nếu bạn muốn tải source code bằng **Composer** thì chạy lệnh sau:
-```shell
-# Tải source code
-composer create-project datlechin/shopgame --stability=dev
-
-# Cài đặt
-cd shopgame
-composer install
-```
-
-Hoặc cài đặt bằng cách thủ công:
-1. Tải source code về máy (Code -> Download zip).
-2. Chạy tệp `database.sql` trong trình quản lý MySQL.
-3. Cấu hình thông tin database trong tệp `app/config.php`
+https://github.com/datlechin/shopgame/wiki/Hướng-dẫn-cài-đặt
 
 ## Báo cáo lỗi & góp ý
 
