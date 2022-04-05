@@ -21,6 +21,10 @@ $sponsors = array(
     [
         'name' => 'Bùi Văn Hải',
         'money' => 100000
+    ],
+    [
+        'name' => 'Vũ Quốc Hải',
+        'money' => 10000
     ]
 );
 
