@@ -28,7 +28,7 @@ require_once '../../views/partials/header.php';
                 <button class="btn btn-info">Thực hiện</button>
             </form>
             <div class="table-responsive mt-4">
-                <table class="table table-striped table-hover">
+                <table class="table <?= (setting('dark_mode') == 1) ? 'table-dark' : null ?> table-striped table-hover">
                     <thead>
                     <tr>
                         <th>Thời gian</th>

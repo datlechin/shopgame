@@ -9,7 +9,7 @@ require_once '../../views/partials/header.php';
         ?>
         <div class="col-md-9 mt-4 mt-md-0">
             <h2 class="text-uppercase fw-bold"><?php echo (isset($title)) ? $title : 'Lịch sử giao dịch'; ?></h2>
-            <table class="table table-striped">
+            <table class="table <?= (setting('dark_mode') == 1) ? 'table-dark' : null ?> table-striped">
                 <tbody>
                 <tr>
                     <th scope="row">ID của bạn:</th>
