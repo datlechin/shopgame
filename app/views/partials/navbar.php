@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+<nav class="navbar navbar-expand-lg <?= (setting('dark_mode') == 1) ? 'navbar-dark bg-dark' : 'navbar-light bg-light' ?> fixed-top">
     <div class="container">
         <a class="navbar-brand me-2" href="/">
             <img src="<?= setting('logo') ?>" height="35" alt="<?= setting('title') ?>" loading="lazy" />
