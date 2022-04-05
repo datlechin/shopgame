@@ -72,7 +72,7 @@ require_once 'partials/header.php';
                         <form action="/admin/settings" method="post">
                             <div class="form-group">
                                 <label>Thông báo trang chủ:</label>
-                                <textarea name="noticeModal" id="summernote" class="form-control"><?php echo htmlentities(setting('noticeModal')); ?></textarea>
+                                <textarea name="noticeModal" id="summernote" class="form-control"><?php echo setting('noticeModal'); ?></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu lại</button>
                         </form>
@@ -99,6 +99,24 @@ require_once 'partials/header.php';
                         </form>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Chân trang</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/settings" method="post">
+                            <div class="form-group">
+                                <label>Nội dung cột 1:</label>
+                                <textarea name="footer_content" id="footer_content" rows="4" class="form-control"><?php echo setting('footer_content'); ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>ID Fanpage Facebook</label>
+                                <input type="text" name="facebook_fanpage_id" class="form-control" value="<?php echo setting('facebook_fanpage_id'); ?>">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lưu lại</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,7 +129,10 @@ require_once 'partials/header.php';
     $(function() {
         $('#summernote').summernote({
             minHeight: 167,
-        })
+        });
+        $('#footer_content').summernote({
+            minHeight: 167,
+        });
     });
 
     $(document).ready(function() {

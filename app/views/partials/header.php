@@ -17,6 +17,8 @@
     <script src="/assets/frontend/plugins/jquery/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=594023848155051&autoLogAppEvents=1" nonce="dlGUxhbo"></script>
 <?php
 require_once 'navbar.php';
 ?>
