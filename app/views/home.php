@@ -63,7 +63,7 @@ require_once 'partials/header.php';
                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <?php echo setting('noticeModal'); ?>
+                        <?= html_entity_decode(setting('noticeModal')) ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary close-modal" data-mdb-dismiss="modal">Đóng</button>
