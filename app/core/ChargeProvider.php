@@ -24,6 +24,8 @@ class ChargeProvider
     public int $status;
     public string $message;
 
+    public object $data;
+
     public function __construct($user, Medoo $db)
     {
         $this->user = $user;
@@ -39,7 +41,7 @@ class ChargeProvider
         $this->request_id = $request_id;
     }
 
-    public function postCardVip()
+    public function postCard()
     {
         if (setting('charge_provider') == 'CARDVIP') {
             $this->provider = 'CARDVIP';
@@ -53,18 +55,31 @@ class ChargeProvider
                 'RequestId' => $this->request_id,
                 'UrlCallback' => site_url('callback')
             );
-
             $response = $this->curl('https://partner.cardvip.vn/api/createExchange', $dataPost);
-            $data = json_decode($response);
+            $this->data = json_decode($response);
+        } else if (setting('charge_provider') == 'TSR') {
+            $this->provider = 'TSR';
+            $dataPost = array(
+                'telco' => $this->telco,
+                'code' => $this->pin,
+                'serial' => $this->serial,
+                'amount' => $this->amount,
+                'request_id' => $this->request_id,
+                'partner_id' => setting('charge_api_key'),
+                'sign' => md5(setting('charge_partner_id') . $this->pin . $this->serial),
+                'command' => 'charging'
+            );
+            $response = $this->curl('https://thesieure.com/chargingws/v2', $dataPost);
+            $this->data = json_decode($response);
         } else {
-            $data = (object) array(
+            $this->data = (object)array(
                 'status' => 0,
                 'message' => 'Cổng nạp hiện tại đang bảo trì!'
             );
         }
 
-        $this->status = $data->status;
-        $this->message = $data->message;
+        $this->status = $this->data->status;
+        $this->message = $this->data->message;
 
         if ($this->status == 200) $this->insert();
     }

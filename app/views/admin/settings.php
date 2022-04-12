@@ -88,8 +88,12 @@ require_once 'partials/header.php';
                                 <label for="charge_provider">Kênh nạp:</label>
                                 <select name="charge_provider" id="charge_provider" class="form-control custom-select">
                                     <option value="CARDVIP">Cardvip.vn</option>
-                                    <!-- <option value="TSR">Thesieure.com</option> -->
+                                     <option value="TSR">Thesieure.com</option>
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Partner ID: <small>(Là partner ID bên TSR, Cardvip thì để trống)</small></label>
+                                <input type="text" name="charge_partner_id" class="form-control" value="<?php echo setting('charge_partner_id'); ?>">
                             </div>
                             <div class="form-group">
                                 <label>API Key:</label>
@@ -97,6 +101,9 @@ require_once 'partials/header.php';
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu lại</button>
                         </form>
+                    </div>
+                    <div class="card-footer">
+                        URL callback là: <code><?= site_url('callback') ?></code>
                     </div>
                 </div>
                 <div class="card">

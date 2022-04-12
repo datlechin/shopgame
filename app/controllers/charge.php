@@ -41,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $charge = new ChargeProvider($user, $db);
             $charge->init($telco, (int) $amount, $serial, $pin, $request_id);
-            $charge->postCardVip();
+            $charge->postCard();
 
-            if ($charge->status == 200) {
+            if ($charge->status == 200 || $charge->status == 99) {
                 $success = 'Nạp thẻ thành công';
             } else {
                 $error = $charge->message;
