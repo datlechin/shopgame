@@ -2,7 +2,7 @@
 
 use ShopGame\core\PaginationWidget;
 
-require_once 'partials/header.php';
+require_once ROOT_PATH . '/app/views/admin/partials/header.php';
 ?>
 
     <link rel="stylesheet" href="<?php echo asset('assets/backend/plugins/summernote/summernote-bs4.min.css'); ?>">
@@ -31,6 +31,7 @@ require_once 'partials/header.php';
                                     <th>Hình ảnh</th>
                                     <th>Trạng thái</th>
                                     <th>Cập nhật lúc</th>
+                                    <th>Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -56,6 +57,9 @@ require_once 'partials/header.php';
                                             <?php endif; ?>
                                         </td>
                                         <td><?php echo $category['updated_at']; ?></td>
+                                        <td>
+                                            <a href="/admin/categories/<?= $category['id'] ?>/edit" class="btn btn-primary">Sửa</a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
@@ -155,5 +159,5 @@ require_once 'partials/header.php';
     </script>
 
 <?php
-require_once 'partials/footer.php';
+require_once ROOT_PATH . '/app/views/admin/partials/footer.php';
 ?>

@@ -9,7 +9,10 @@
 
 use ShopGame\core\Upload;
 
-require_once '../../bootstrap.php';
+define('ROOT_PATH', dirname(__DIR__, 4));
+
+
+require_once ROOT_PATH . '/app/bootstrap.php';
 
 if (!$userClass->isAdmin()) {
     redirect('/');
@@ -51,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upload = new Upload($image);
             $image = $upload->allowed(['image/jpeg', 'image/png', 'image/gif'])
                 ->maxSize(2 * 1024 * 1024)
-                ->path(dirname(__DIR__, 3))
+                ->path(ROOT_PATH)
                 ->upload();
 
             if ($upload->getError()) {
@@ -89,4 +92,4 @@ $categories = $db->select('categories', '*', [
     'LIMIT' => [$pagination->offset, $pagination->limit]
 ]);
 
-require_once '../../views/admin/categories.php';
+require_once ROOT_PATH . '/app/views/admin/categories/index.php';
