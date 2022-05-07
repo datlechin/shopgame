@@ -13,9 +13,9 @@ require_once '../bootstrap.php';
 
 $request_uri = $_SERVER['REQUEST_URI'];
 $request_uri = explode('?', $request_uri);
-$request_uri = $request_uri[1];
+$request_uri = $request_uri[1] ?? '';
 $request_uri = explode('page=', $request_uri);
-$page = $request_uri[1];
+$page = $request_uri[1] ?? 1;
 
 $slug = cleanInput($_GET['slug']);
 $result = $db->select('categories', '*', [
