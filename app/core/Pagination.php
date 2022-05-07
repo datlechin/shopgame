@@ -59,7 +59,7 @@ class Pagination
      *
      * @var integer
      */
-    public int $perPage = 15;
+    public int $perPage = 16;
 
     /**
      * Name of the parameter storing the page size

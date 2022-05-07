@@ -11,6 +11,12 @@ use ShopGame\core\Pagination;
 
 require_once '../bootstrap.php';
 
+$request_uri = $_SERVER['REQUEST_URI'];
+$request_uri = explode('?', $request_uri);
+$request_uri = $request_uri[1];
+$request_uri = explode('page=', $request_uri);
+$page = $request_uri[1];
+
 $slug = cleanInput($_GET['slug']);
 $result = $db->select('categories', '*', [
     'type' => 'game',
@@ -19,6 +25,7 @@ $result = $db->select('categories', '*', [
 ]);
 
 if (count($result) > 0) {
+    $_GET['page'] = $page;
     $category = $result[0];
     $title = $category['name'];
 
